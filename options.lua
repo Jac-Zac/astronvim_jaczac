@@ -9,7 +9,7 @@ return {
     wrap = false, -- sets vim.opt.wrap
     tabstop = 4, -- number of space in a tab
     showtabline = 4, -- always display tabline
-    foldlevel = 10, -- allow multiple folds
+    foldlevel = 2, -- allow multiple folds
     foldlevelstart = 0, -- start with all code unfolded
   },
   g = {
