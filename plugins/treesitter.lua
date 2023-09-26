@@ -8,7 +8,6 @@ return {
       "lua",
       "python",
       "cpp",
-      "markdown",
       "latex",
     })
   end,
