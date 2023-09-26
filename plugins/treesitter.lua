@@ -5,7 +5,11 @@ return {
     opts.ensure_installed = require("astronvim.utils").list_insert_unique(opts.ensure_installed, {
 
       -- add any language you might be interested in
-     "lua", "python", "cpp", "markdown", "latex", "c"
+      "lua",
+      "python",
+      "cpp",
+      "markdown",
+      "latex",
     })
   end,
 }

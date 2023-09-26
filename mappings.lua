@@ -34,12 +34,18 @@ return {
       function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Toggle comment line",
     },
+
+    -- open markdown preview
+    ["<leader>m"] = { ":MarkdownPreview<CR>", desc = "Open markdown preview" },
     -- quick save
     ["<C-s>"] = { ":wq!<cr>", desc = "Save File" }, -- change description but the same command
 
     ["<F1>"] = { ":setlocal spell spelllang=en_us<CR>" },
     ["<F2>"] = { ":setlocal spell spelllang=it<CR>" },
-    ["<F3>"] = { ":PeekOpen<CR>" },
+    ["<F3>"] = { ":MarkdownPreview<CR>" },
+
+    -- disable the mapping
+    ["<leader>/"] = false,
   },
   t = {
     -- setting a mapping to false will disable it
@@ -49,7 +55,7 @@ return {
   -- Visual mode
   v = {
     -- enable multiple line comments too
-    ["<leader>/"] = {
+    ["<leader>c"] = {
       "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
       desc = "Toggle comment for selection",
     },
