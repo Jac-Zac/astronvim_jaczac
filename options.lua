@@ -6,9 +6,10 @@ return {
     number = true, -- sets vim.opt.number
     spell = true, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-    wrap = false, -- sets vim.opt.wrap
+    wrap = true, -- sets vim.opt.wrap
     tabstop = 4, -- number of space in a tab
     showtabline = 4, -- always display tabline
+    foldenable = false,
     foldlevel = 10, -- allow multiple folds
     foldlevelstart = 0, -- start with all code unfolded
   },
