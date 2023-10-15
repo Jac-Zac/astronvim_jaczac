@@ -43,6 +43,7 @@ return {
     ["<F1>"] = { ":setlocal spell spelllang=en_us<CR>" },
     ["<F2>"] = { ":setlocal spell spelllang=it<CR>" },
     ["<F3>"] = { ":MarkdownPreview<CR>" },
+    ["<F4>"] = { ":VimtexCompile<CR>" },
 
     -- disable the mapping
     ["<leader>/"] = false,
