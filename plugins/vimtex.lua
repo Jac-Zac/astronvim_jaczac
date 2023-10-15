@@ -14,7 +14,7 @@ return {
           buffer = event.buf, -- Specify a buffer number for buffer local mappings to show only in tex buffers
         }
         local mappings = {
-          ["<localleader>l"] = {
+          ["<leader>l"] = {
             name = "+VimTeX",
             a = "Show Context Menu",
             C = "Full Clean",
