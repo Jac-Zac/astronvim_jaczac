@@ -1,4 +1,4 @@
--- Mapping data with "desc" stored directly by vim.keymap.set().
+-- Mapping data with "desc" stored directly by vim.key map.set().
 --
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
@@ -6,17 +6,17 @@
 return {
   -- first key is the mode
   n = {
-    -- second key is the lefthand side of the map
+    -- second key is the left-hand side of the map
 
     -- navigate buffer tabs with `H` and `L`
-    -- L = {
-    --   function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
-    --   desc = "Next buffer",
-    -- },
-    -- H = {
-    --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
-    --   desc = "Previous buffer",
-    -- },
+    L = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },
+    H = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
 
     -- mappings seen under group name "Buffer"
     ["<leader>bD"] = {
@@ -47,6 +47,10 @@ return {
 
     -- disable the mapping
     ["<leader>/"] = false,
+
+    -- fixing misspelled words
+    ["f"] = { "[s1z=", desc = "Fixing misspelled backward" },
+    ["F"] = { "]s1z=", desc = "Fixing misspelled forward" },
   },
   t = {
     -- setting a mapping to false will disable it
