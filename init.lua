@@ -17,7 +17,7 @@ return {
     },
   },
 
-  -- instant_username = "Jac-Zac",
+  instant_username = "Jac-Zac",
 
   -- Set colorscheme to use
   colorscheme = "nord",
