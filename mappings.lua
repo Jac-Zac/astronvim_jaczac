@@ -35,8 +35,20 @@ return {
       desc = "Toggle comment line",
     },
 
-    -- open markdown preview
-    ["<leader>m"] = { ":MarkdownPreview<CR>", desc = "Open markdown preview" },
+    -- open markdown preview or latex depending on the file type
+    ["<leader>m"] = {
+      function()
+        local file_extension = vim.fn.expand "%:e"
+        if file_extension == "md" then
+          vim.cmd "MarkdownPreview"
+        elseif file_extension == "tex" then
+          vim.cmd "VimtexCompile"
+        end
+      end,
+      desc = "Open markdown preview or perform tex action",
+    },
+
+    --
     -- quick save
     ["<C-s>"] = { ":wq!<cr>", desc = "Save File" }, -- change description but the same command
 
