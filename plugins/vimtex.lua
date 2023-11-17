@@ -1,5 +1,7 @@
 return {
   "lervag/vimtex",
+  ft = "latex",
+  event = "BufEnter *.tex",
   lazy = false,
   init = function()
     -- add which-key mapping descriptions for VimTex

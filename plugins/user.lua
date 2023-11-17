@@ -28,4 +28,11 @@ return {
     ft = "markdown",
     event = "BufEnter *.md",
   },
+
+  {
+    "czheo/mojo.vim",
+    ft = "mojo",
+    event = { "BufEnter *.🔥", "FileType mojo" },
+    lazy = true,
+  },
 }
