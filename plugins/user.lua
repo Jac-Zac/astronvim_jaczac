@@ -29,9 +29,5 @@ return {
     event = "BufEnter *.md",
   },
 
-  {
-    "czheo/mojo.vim",
-    ft = "mojo",
-    event = { "BufEnter *.🔥", "FileType mojo" },
-  },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 }

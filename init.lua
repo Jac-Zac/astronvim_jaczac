@@ -20,6 +20,7 @@ return {
   instant_username = "Jac-Zac",
 
   -- Set colorscheme to use
+  -- colorscheme = "catppuccin-frappe",
   colorscheme = "nord",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
@@ -85,12 +86,3 @@ return {
     -- }
   end,
 }
-
--- catpuccino theme
--- return {
--- plugins = {
--- "AstroNvim/astrocommunity",
--- { import = "astrocommunity.colorscheme.catppuccin" }
--- -- ... import any community contributed plugins here
--- }
--- }

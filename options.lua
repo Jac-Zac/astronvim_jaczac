@@ -7,8 +7,8 @@ return {
     spell = true, -- sets vim.opt.spell
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     wrap = true, -- sets vim.opt.wrap
-    tabstop = 2, -- number of space in a tab
-    showtabline = 2, -- always display tabline
+    tabstop = 4, -- number of space in a tab
+    showtabline = 4, -- always display tabline
     -- foldenable = false, -- disables folding
     foldlevel = 99, -- allow multiple folds
     foldlevelstart = 99, -- start with all code unfolded
