@@ -10,7 +10,9 @@ return {
   --   end,
   -- },
   -- nord theme
-  "shaunsingh/nord.nvim",
+  { "shaunsingh/nord.nvim" },
+  -- Better color theme
+  { "m-demare/hlargs.nvim", opts = { color = "#d08770" }, event = "User AstroFile" },
 
   -- TODO make it work
   {
