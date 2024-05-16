@@ -29,7 +29,7 @@ return {
       opt = { -- vim.opt.<key>
         relativenumber = true, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
-        spell = false, -- sets vim.opt.spell
+        spell = true, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
       },
@@ -85,8 +85,8 @@ return {
         -- quick save
         ["<C-s>"] = { ":wq!<cr>", desc = "Save File" }, -- change description but the same command
 
-        ["<F1>"] = { ":setlocal spell spelllang=en_us<CR>" },
-        ["<F2>"] = { ":setlocal spell spelllang=it<CR>" },
+        -- ["<F1>"] = { ":setlocal spell spelllang=en_us<CR>" },
+        -- ["<F2>"] = { ":setlocal spell spelllang=it<CR>" },
         ["<F3>"] = { ":MarkdownPreview<CR>" },
         ["<F4>"] = { ":VimtexCompile<CR>" },
 
