@@ -9,7 +9,6 @@ return {
   -- == Examples of Adding Plugins ==
   --
   -- nord theme
-  { "shaunsingh/nord.nvim" },
   { "L3MON4D3/LuaSnip", run = "make install_jsregexp" },
 
   -- Markdown preview
