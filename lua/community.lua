@@ -11,36 +11,6 @@ return {
   -- import/override with your plugins folder
   --
   { import = "astrocommunity.pack.python" },
-  {
-    "ggandor/leap.nvim",
-    keys = {
-      { "s", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "S", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-      { "x", "<Plug>(leap-forward-till)", mode = { "x", "o" }, desc = "Leap forward till" },
-      { "X", "<Plug>(leap-backward-till)", mode = { "x", "o" }, desc = "Leap backward till" },
-      { "gs", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from window" },
-    },
-    opts = {},
-    init = function() -- https://github.com/ggandor/leap.nvim/issues/70#issuecomment-1521177534
-      vim.api.nvim_create_autocmd("User", {
-        callback = function()
-          vim.cmd.hi("Cursor", "blend=100")
-          vim.opt.guicursor:append { "a:Cursor/lCursor" }
-        end,
-        pattern = "LeapEnter",
-      })
-      vim.api.nvim_create_autocmd("User", {
-        callback = function()
-          vim.cmd.hi("Cursor", "blend=0")
-          vim.opt.guicursor:remove { "a:Cursor/lCursor" }
-        end,
-        pattern = "LeapLeave",
-      })
-    end,
-    dependencies = {
-      "tpope/vim-repeat",
-    },
-  },
 
   -- Nord theme
   {
@@ -74,4 +44,91 @@ return {
     optional = true,
     opts = { integrations = { leap = true } },
   },
+
+  -- Import flash for better movement
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      {
+        "AstroNvim/astrocore",
+        opts = {
+          mappings = {
+            x = {
+              ["s"] = {
+                function() require("flash").jump() end,
+                desc = "Flash",
+              },
+              ["R"] = {
+                function() require("flash").treesitter_search() end,
+                desc = "Treesitter Search",
+              },
+              ["S"] = {
+                function() require("flash").treesitter() end,
+                desc = "Flash Treesitter",
+              },
+            },
+            o = {
+              ["r"] = {
+                function() require("flash").remote() end,
+                desc = "Remote Flash",
+              },
+              ["R"] = {
+                function() require("flash").treesitter_search() end,
+                desc = "Treesitter Search",
+              },
+              ["s"] = {
+                function() require("flash").jump() end,
+                desc = "Flash",
+              },
+              ["S"] = {
+                function() require("flash").treesitter() end,
+                desc = "Flash Treesitter",
+              },
+            },
+            n = {
+              ["s"] = {
+                function() require("flash").jump() end,
+                desc = "Flash",
+              },
+              ["S"] = {
+                function() require("flash").treesitter() end,
+                desc = "Flash Treesitter",
+              },
+            },
+          },
+        },
+      },
+    },
+    opts = {},
+  },
+
+  -- Setting up Noice to make things nicer
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = { "MunifTanjim/nui.nvim" },
+  --   opts = function(_, opts)
+  --     local utils = require "astrocore"
+  --     return utils.extend_tbl(opts, {
+  --       lsp = {
+  --         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+  --         override = {
+  --           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+  --           ["vim.lsp.util.stylize_markdown"] = true,
+  --           ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+  --           ["config.lsp.signature.enabled"] = false,
+  --         },
+  --       },
+  --       -- you can enable a preset for easier configuration
+  --       presets = {
+  --         bottom_search = true, -- use a classic bottom cmdline for search
+  --         command_palette = true, -- position the cmdline and popupmenu together
+  --         long_message_to_split = true, -- long messages will be sent to a split
+  --         inc_rename = false, -- enables an input dialog for inc-rename.nvim
+  --         lsp_doc_border = false, -- add a border to hover docs and signature help
+  --       },
+  --     })
+  --   end,
+  -- },
 }
