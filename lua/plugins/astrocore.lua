@@ -90,6 +90,9 @@ return {
         ["<F3>"] = { ":MarkdownPreview<CR>" },
         ["<F4>"] = { ":VimtexCompile<CR>" },
 
+        -- Dismiss messages for Noice
+        ["<Leader>nd"] = { ":NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
+
         -- disable the mapping
         ["<Leader>/"] = false,
 
