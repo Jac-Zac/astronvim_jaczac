@@ -97,8 +97,8 @@ return {
         ["<Leader>/"] = false,
 
         -- fixing misspelled words
-        ["f"] = { "[s1z=", desc = "Fixing misspelled backward" },
-        ["F"] = { "]s1z=", desc = "Fixing misspelled forward" },
+        ["zd"] = { "[s1z=", desc = "Fixing misspelled backward" },
+        ["zD"] = { "]s1z=", desc = "Fixing misspelled forward" },
       },
       t = {
         -- setting a mapping to false will disable it
