@@ -8,18 +8,7 @@ return {
 
   -- == Examples of Adding Plugins ==
   --
-  -- nord theme
   { "L3MON4D3/LuaSnip", run = "make install_jsregexp" },
-
-  -- Markdown preview
-  -- install with yarn or npm
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function() vim.g.mkdp_filetypes = { "markdown" } end,
-    ft = { "markdown" },
-  },
 
   "andweeb/presence.nvim",
 
@@ -64,8 +53,8 @@ return {
         opts.button("LDR f o", get_icon("DefaultFile", 2, true) .. "Recents  "),
         opts.button("LDR S l", get_icon("Refresh", 2, true) .. "Last Session  "),
         opts.button("LDR f f", get_icon("Search", 2, true) .. "Find File  "),
-        opts.button("LDR n  ", get_icon("FileNew", 2, true) .. "New File  "),
         opts.button("LDR f w", get_icon("WordFile", 2, true) .. "Find Word  "),
+        opts.button("LDR n  ", get_icon("FileNew", 2, true) .. "New File  "),
         opts.button("LDR f '", get_icon("Bookmarks", 2, true) .. "Bookmarks  "),
       }
       return opts

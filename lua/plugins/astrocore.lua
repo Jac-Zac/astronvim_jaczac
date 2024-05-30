@@ -85,8 +85,8 @@ return {
         -- quick save
         ["<C-s>"] = { ":wq!<cr>", desc = "Save File" }, -- change description but the same command
 
-        -- ["<F1>"] = { ":setlocal spell spelllang=en_us<CR>" },
-        -- ["<F2>"] = { ":setlocal spell spelllang=it<CR>" },
+        ["<F1>"] = { ":AstroUpdate<CR>" },
+        ["<F2>"] = { ":TodoTelescope<CR>" },
         ["<F3>"] = { ":MarkdownPreview<CR>" },
         ["<F4>"] = { ":VimtexCompile<CR>" },
 
@@ -97,8 +97,8 @@ return {
         ["<Leader>/"] = false,
 
         -- fixing misspelled words
-        -- ["a"] = { "[s1z=", desc = "Fixing misspelled backward" },
-        -- ["A"] = { "]s1z=", desc = "Fixing misspelled forward" },
+        ["f"] = { "]s1z=", desc = "Fixing misspelled forward" },
+        ["F"] = { "[s1z=", desc = "Fixing misspelled backward" },
       },
       t = {
         -- setting a mapping to false will disable it

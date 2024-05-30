@@ -12,6 +12,16 @@ return {
   --
   { import = "astrocommunity.pack.python" },
 
+  -- Markdown preview
+  -- install with yarn or npm
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && yarn install",
+    init = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  },
+
   -- Nord theme
   {
     "EdenEast/nightfox.nvim",
@@ -126,7 +136,21 @@ return {
         },
       },
     },
-    opts = {},
+    opts = {
+      modes = {
+        -- Enable custom search
+        search = {
+          enabled = true,
+        },
+        char = {
+          -- enabled = false,
+          -- keys = { "f", "F", "t", "T", ";", "," },
+          -- Keys remove the f and F since I use them for fixing spelling mistakes
+          -- Following this instruction we map t to work like f [";"] = "L", [","] = H
+          keys = { ["f"] = "t", ["F"] = "T", ";", "," },
+        },
+      },
+    },
   },
 
   {
