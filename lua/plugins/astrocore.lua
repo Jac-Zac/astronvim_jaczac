@@ -32,6 +32,7 @@ return {
         spell = true, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
         wrap = false, -- sets vim.opt.wrap
+        conceallevel = 2, --set concelelevel to the max
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -44,7 +45,7 @@ return {
     mappings = {
       -- first key is the mode
       n = {
-        -- second key is the lefthand side of the map
+        -- second key is the lefthnd side of the map
 
         -- navigate buffer tabs with `H` and `L`
         L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
@@ -85,16 +86,16 @@ return {
         -- quick save
         ["<C-s>"] = { ":wq!<cr>", desc = "Save File" }, -- change description but the same command
 
-        ["<F1>"] = { ":AstroUpdate<CR>" },
-        ["<F2>"] = { ":TodoTelescope<CR>" },
-        ["<F3>"] = { ":MarkdownPreview<CR>" },
-        ["<F4>"] = { ":VimtexCompile<CR>" },
-
-        -- Dismiss messages for Noice
-        ["<Leader>nd"] = { ":NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
+        -- Set up Function keys
+        ["<F1>"] = { ":AstroUpdate<CR>", desc = "Update Astrovim" },
+        ["<F2>"] = { ":TodoTelescope<CR>", desc = "Todo Search with Telescope" },
+        ["<F3>"] = { ":NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
+        ["<F4>"] = { ":MarkdownPreview<CR>", desc = "Markdown preview start" },
+        ["<F5>"] = { ":VimtexCompile<CR>", desc = "Compile Latex in continus mode" },
 
         -- disable the mapping
         ["<Leader>/"] = false,
+        ["<Leader>o"] = false,
 
         -- fixing misspelled words
         ["f"] = { "]s1z=", desc = "Fixing misspelled forward" },
