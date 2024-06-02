@@ -4,8 +4,14 @@ return {
   "epwalsh/obsidian.nvim",
   -- the obsidian vault in this default config  ~/obsidian-vault
   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand':
-  event = { "bufreadpre " .. vim.fn.expand "~" .. "/Documents/second_brain/**.md" },
-  -- event = { "BufReadPre  */obsidian-vault/*.md" },
+  -- Setting up obsidian to load even inside subdirectories of the value and inside the base directory
+  -- event = {
+  --   ft = { "markdown" },
+  -- },
+  event = {
+    "BufReadPre " .. vim.fn.expand "~" .. "/Documents/second_brain/*.md",
+    "BufReadPre " .. vim.fn.expand "~" .. "/Documents/second_brain/**/*.md",
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
@@ -28,8 +34,11 @@ return {
 
             ["<Leader>oq"] = { "<Cmd>ObsidianQuickSwitch<CR>", desc = "Search for words in Obsidian Notes" },
             ["<Leader>os"] = { "<Cmd>ObsidianSearch<CR>", desc = "Search files in Obsidian" },
-            ["<Leader>oc"] = { "<Cmd>ObsidianToggleCheckbox<CR>", desc = "Obsidian Search" },
+            ["<Leader>oc"] = { "<Cmd>ObsidianToggleCheckbox<CR>", desc = "Check Checkbox" },
             ["<Leader>ol"] = { "<Cmd>ObsidianLinks<CR>", desc = "Show Obsidian Links" },
+            ["<Leader>oo"] = { "<Cmd>ObsidianOpen<CR>", desc = "Opens Obsidian Application" },
+            ["<Leader>on"] = { "<Cmd>ObsidianNew<CR>", desc = "Create a new Note" },
+            ["<Leader>ot"] = { "<Cmd>ObsidianTemplate<CR>", desc = "Select a template" },
           },
           v = {
             ["<Leader>ol"] = { "<Cmd>ObsidianLink<CR>", desc = "Create an Obsidian Link" },
