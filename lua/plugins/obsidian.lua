@@ -32,8 +32,8 @@ return {
               desc = "Obsidian Follow Link",
             },
 
-            ["<Leader>oq"] = { "<Cmd>ObsidianQuickSwitch<CR>", desc = "Search for words in Obsidian Notes" },
-            ["<Leader>os"] = { "<Cmd>ObsidianSearch<CR>", desc = "Search files in Obsidian" },
+            ["<Leader>of"] = { "<Cmd>ObsidianQuickSwitch<CR>", desc = "Search files in Obsidian" },
+            ["<Leader>ow"] = { "<Cmd>ObsidianSearch<CR>", desc = "Search word in Obsidian" },
             ["<Leader>oc"] = { "<Cmd>ObsidianToggleCheckbox<CR>", desc = "Check Checkbox" },
             ["<Leader>ol"] = { "<Cmd>ObsidianLinks<CR>", desc = "Show Obsidian Links" },
             ["<Leader>oo"] = { "<Cmd>ObsidianOpen<CR>", desc = "Opens Obsidian Application" },
