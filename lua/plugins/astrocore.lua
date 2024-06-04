@@ -67,8 +67,19 @@ return {
           desc = "Toggle comment line",
         },
 
+        -- tables with just a `desc` key will be registered with which-key if it's installed
+        -- this is useful for naming menus
+        ["<Leader>b"] = { desc = "Buffers" },
+
+        -- quick save
+        ["<C-s>"] = { ":wq!<cr>", desc = "Save File" }, -- change description but the same command
+
+        -- Set up Function keys
+        ["<F1>"] = { ":AstroUpdate<CR>", desc = "Update Astrovim" },
+        ["<F2>"] = { ":NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
+        ["<F3>"] = { ":TodoTelescope<CR>", desc = "Todo Search with Telescope" },
         -- open markdown preview or latex depending on the file type
-        ["<Leader>m"] = {
+        ["<F4>"] = {
           function()
             local file_extension = vim.fn.expand "%:e"
             if file_extension == "md" then
@@ -79,23 +90,11 @@ return {
           end,
           desc = "Open markdown preview or perform tex action",
         },
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        ["<Leader>b"] = { desc = "Buffers" },
-
-        -- quick save
-        ["<C-s>"] = { ":wq!<cr>", desc = "Save File" }, -- change description but the same command
-
-        -- Set up Function keys
-        ["<F1>"] = { ":AstroUpdate<CR>", desc = "Update Astrovim" },
-        ["<F2>"] = { ":TodoTelescope<CR>", desc = "Todo Search with Telescope" },
-        ["<F3>"] = { ":NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
-        ["<F4>"] = { ":MarkdownPreview<CR>", desc = "Markdown preview start" },
-        ["<F5>"] = { ":VimtexCompile<CR>", desc = "Compile Latex in continus mode" },
 
         -- disable the mapping
         ["<Leader>/"] = false,
         ["<Leader>o"] = false,
+        ["<Leader>h"] = false,
 
         -- fixing misspelled words
         ["f"] = { "]s1z=", desc = "Fixing misspelled forward" },

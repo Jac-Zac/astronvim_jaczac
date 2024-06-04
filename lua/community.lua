@@ -22,6 +22,63 @@ return {
     ft = { "markdown" },
   },
 
+  -- Harpoon2
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+      { "AstroNvim/astroui", opts = { icons = { Harpoon = "󱡀" } } },
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings
+          local term_string = vim.fn.exists "$TMUX" == 1 and "tmux" or "term"
+          local prefix = "<Leader>"
+          maps.n[prefix] = { desc = require("astroui").get_icon("Harpoon", 1, true) .. "Harpoon" }
+
+          maps.n[prefix .. "ha"] = { function() require("harpoon"):list():add() end, desc = "Add file" }
+          maps.n[prefix .. "hm"] = {
+            function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end,
+            desc = "Toggle quick menu",
+          }
+          -- maps.n["<C-x>"] = {
+          --   function()
+          --     vim.ui.input({ prompt = "Harpoon mark index: " }, function(input)
+          --       local num = tonumber(input)
+          --       if num then require("harpoon"):list():select(num) end
+          --     end)
+          --   end,
+          --   desc = "Goto index of mark",
+          -- }
+          maps.n[prefix .. "hp"] = { function() require("harpoon"):list():prev() end, desc = "Goto previous mark" }
+          maps.n[prefix .. "hn"] = { function() require("harpoon"):list():next() end, desc = "Goto next mark" }
+          maps.n[prefix .. "ht"] = { "<Cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" }
+        end,
+      },
+    },
+  },
+
+  --     Old text                    Command         New text
+  -- --------------------------------------------------------------------------------
+  --     surr*ound_words             ysiw)           (surround_words)
+  --     *make strings               ys$"            "make strings"
+  --     [delete ar*ound me!]        ds]             delete around me!
+  --     remove <b>HTML t*ags</b>    dst             remove HTML tags
+  --     'change quot*es'            cs'"            "change quotes"
+  --     <b>or tag* types</b>        csth1<CR>       <h1>or tag types</h1>
+  --     delete(functi*on calls)     dsf             function calls
+  -- Example ys2w" then you can press `.` to do it again
+
+  -- Surround text easily
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    opts = {},
+  },
+
   -- Nord theme
   {
     "EdenEast/nightfox.nvim",
