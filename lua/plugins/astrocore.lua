@@ -92,9 +92,9 @@ return {
         },
 
         -- disable the mapping
-        ["<Leader>/"] = false,
-        ["<Leader>o"] = false,
-        ["<Leader>h"] = false,
+        ["<Leader>/"] = false, -- disabling for comment
+        ["<Leader>o"] = false, -- disabling for obsidian
+        ["<Leader>h"] = false, -- disabling it for harpoon
 
         -- fixing misspelled words
         ["f"] = { "]s1z=", desc = "Fixing misspelled forward" },
