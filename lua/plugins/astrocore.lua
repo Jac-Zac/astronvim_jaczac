@@ -75,9 +75,9 @@ return {
         ["<C-s>"] = { ":wq!<cr>", desc = "Save File" }, -- change description but the same command
 
         -- Set up Function keys
-        ["<F1>"] = { ":AstroUpdate<CR>", desc = "Update Astrovim" },
-        ["<F2>"] = { ":NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
-        ["<F3>"] = { ":TodoTelescope<CR>", desc = "Todo Search with Telescope" },
+        ["<F1>"] = { "<cmd>AstroUpdate<CR>", desc = "Update Astrovim" },
+        ["<F2>"] = { "<cmd>NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
+        ["<F3>"] = { "<cmd>TodoTelescope<CR>", desc = "Todo Search with Telescope" },
         -- open markdown preview or latex depending on the file type
         ["<F4>"] = {
           function()
@@ -90,6 +90,9 @@ return {
           end,
           desc = "Open markdown preview or perform tex action",
         },
+
+        -- Select virtual environment
+        ["<Leader>fv"] = { "<cmd>VenvSelect<CR>", desc = "Virtual environment selector" },
 
         -- disable the mapping
         ["<Leader>/"] = false, -- disabling for comment
