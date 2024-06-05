@@ -22,6 +22,33 @@ return {
     ft = { "markdown" },
   },
 
+  -- Virtual text for nvim dap
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter" },
+    event = "User AstroFile",
+    opts = {
+      commented = true,
+      enabled = true,
+      enabled_commands = true,
+    },
+  },
+
+  -- Trustier for dap
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "LiadOz/nvim-dap-repl-highlights",
+      dependencies = { "mfussenegger/nvim-dap" },
+      opts = {},
+    },
+    opts = function(_, opts)
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "dap_repl" })
+      end
+    end,
+  },
+
   --     Old text                    Command         New text
   -- --------------------------------------------------------------------------------
   --     surr*ound_words             ysiw)           (surround_words)
@@ -34,12 +61,12 @@ return {
   -- Example ys2w" then you can press `.` to do it again
 
   -- Surround text easily
-  {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    opts = {},
-  },
+  -- {
+  --   "kylechui/nvim-surround",
+  --   version = "*", -- Use for stability; omit to use `main` branch for the latest features
+  --   event = "VeryLazy",
+  --   opts = {},
+  -- },
 
   -- Nord theme
   {

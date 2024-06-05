@@ -12,11 +12,11 @@ return {
         local maps = opts.mappings
         -- local term_string = vim.fn.exists "$TMUX" == 1 and "tmux" or "term"
         --
-        local prefix = "<Leader>"
+        local prefix = "<Leader>h"
         maps.n[prefix] = { desc = require("astroui").get_icon("Harpoon", 1, true) .. "Harpoon" }
 
-        maps.n[prefix .. "ha"] = { function() require("harpoon"):list():add() end, desc = "Add file" }
-        maps.n[prefix .. "hm"] = {
+        maps.n[prefix .. "a"] = { function() require("harpoon"):list():add() end, desc = "Add file" }
+        maps.n[prefix .. "m"] = {
           function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end,
           desc = "Toggle quick menu",
         }
@@ -30,9 +30,9 @@ return {
         --   end,
         --   desc = "Goto index of mark",
         -- }
-        maps.n[prefix .. "hp"] = { function() require("harpoon"):list():prev() end, desc = "Goto previous mark" }
-        maps.n[prefix .. "hn"] = { function() require("harpoon"):list():next() end, desc = "Goto next mark" }
-        maps.n[prefix .. "ht"] = { "<Cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" }
+        maps.n[prefix .. "p"] = { function() require("harpoon"):list():prev() end, desc = "Goto previous mark" }
+        maps.n[prefix .. "n"] = { function() require("harpoon"):list():next() end, desc = "Goto next mark" }
+        maps.n[prefix .. "t"] = { "<Cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" }
       end,
     },
   },

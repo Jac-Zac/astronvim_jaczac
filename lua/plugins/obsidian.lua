@@ -1,4 +1,6 @@
 -- Configuration for Obsidian Plugin
+-- Define prefix
+local prefix = "<Leader>o"
 return {
   -- -- Obsidian
   "epwalsh/obsidian.nvim",
@@ -8,6 +10,7 @@ return {
   -- event = {
   --   ft = { "markdown" },
   -- },
+  --
   event = {
     "BufReadPre " .. vim.fn.expand "~" .. "/Documents/second_brain/*.md",
     "BufReadPre " .. vim.fn.expand "~" .. "/Documents/second_brain/**/*.md",
@@ -32,16 +35,17 @@ return {
               desc = "Obsidian Follow Link",
             },
 
-            ["<Leader>of"] = { "<Cmd>ObsidianQuickSwitch<CR>", desc = "Search files in Obsidian" },
-            ["<Leader>ow"] = { "<Cmd>ObsidianSearch<CR>", desc = "Search word in Obsidian" },
-            ["<Leader>oc"] = { "<Cmd>ObsidianToggleCheckbox<CR>", desc = "Check Checkbox" },
-            ["<Leader>ol"] = { "<Cmd>ObsidianLinks<CR>", desc = "Show Obsidian Links" },
-            ["<Leader>oo"] = { "<Cmd>ObsidianOpen<CR>", desc = "Opens Obsidian Application" },
-            ["<Leader>on"] = { "<Cmd>ObsidianNew<CR>", desc = "Create a new Note" },
-            ["<Leader>ot"] = { "<Cmd>ObsidianTemplate<CR>", desc = "Select a template" },
+            [prefix] = { desc = "󱞁 Obsidian" }, -- Add an icon for the keybinding
+            [prefix .. "f"] = { "<Cmd>ObsidianQuickSwitch<CR>", desc = "Search files in Obsidian" },
+            [prefix .. "w"] = { "<Cmd>ObsidianSearch<CR>", desc = "Search word in Obsidian" },
+            [prefix .. "c"] = { "<Cmd>ObsidianToggleCheckbox<CR>", desc = "Check Checkbox" },
+            [prefix .. "l"] = { "<Cmd>ObsidianLinks<CR>", desc = "Show Obsidian Links" },
+            [prefix .. "o"] = { "<Cmd>ObsidianOpen<CR>", desc = "Opens Obsidian Application" },
+            [prefix .. "n"] = { "<Cmd>ObsidianNew<CR>", desc = "Create a new Note" },
+            [prefix .. "t"] = { "<Cmd>ObsidianTemplate<CR>", desc = "Select a template" },
           },
           v = {
-            ["<Leader>ol"] = { "<Cmd>ObsidianLink<CR>", desc = "Create an Obsidian Link" },
+            [prefix .. "l"] = { "<Cmd>ObsidianLink<CR>", desc = "Create an Obsidian Link" },
           },
         },
       },
