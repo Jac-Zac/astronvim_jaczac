@@ -98,10 +98,14 @@ return {
         ["<Leader>/"] = false, -- disabling for comment
         ["<Leader>o"] = false, -- disabling for obsidian
         ["<Leader>h"] = false, -- disabling it for harpoon
+        ["<Leader>a"] = { "<cmd>Alpha<CR>", desc = "Open Alpha Dashboard" },
 
         -- fixing misspelled words
-        ["f"] = { "]s1z=", desc = "Fixing misspelled forward" },
-        ["F"] = { "[s1z=", desc = "Fixing misspelled backward" },
+        -- ["f"] = { "]s1z=", desc = "Fixing misspelled forward" },
+        -- ["F"] = { "[s1z=", desc = "Fixing misspelled backward" },
+        --
+        ["<C-F>"] = { "[s1z=", desc = "Fixing misspelled backward" },
+        -- ["<C-S-F>"] = { "]s1z=", desc = "Fixing misspelled forward" },
       },
       t = {
         -- setting a mapping to false will disable it

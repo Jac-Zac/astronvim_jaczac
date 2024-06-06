@@ -34,6 +34,13 @@ return {
     },
   },
 
+  -- Improved text object with treesitter
+  {
+    "echasnovski/mini.ai",
+    event = "User AstroFile",
+    opts = {},
+  },
+
   -- Trustier for dap
   {
     "nvim-treesitter/nvim-treesitter",
@@ -189,11 +196,9 @@ return {
           enabled = true,
         },
         char = {
-          -- enabled = false,
+          -- Disable other keys for flash I only care about s and better search
+          enabled = false,
           -- keys = { "f", "F", "t", "T", ";", "," },
-          -- Keys remove the f and F since I use them for fixing spelling mistakes
-          -- Following this instruction we map t to work like f [";"] = "L", [","] = H
-          keys = { ["f"] = "t", ["F"] = "T", ";", "," },
         },
       },
     },
