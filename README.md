@@ -30,3 +30,8 @@ git clone https://github.com/Jac-Zac/astronvim_jaczac ~/.config/nvim/
 ```shell
 nvim
 ```
+
+### Obsidian tips and tricks:
+
+- To set up `ObsidianOpen` to actually open the file you are working on install the plugin Advanced URI on Obsidian
+- `ObsidianOpen` brings the obsidian app to the foreground
