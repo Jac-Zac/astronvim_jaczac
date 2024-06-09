@@ -75,7 +75,14 @@ return {
         ["<C-s>"] = { ":wq!<cr>", desc = "Save File" }, -- change description but the same command
 
         -- Set up Function keys
-        ["<F1>"] = { "<cmd>AstroUpdate<CR>", desc = "Update Astrovim" },
+        ["<F1>"] = {
+          function()
+            os.execute "cd ~/.config/nvim && git pull"
+            vim.cmd "AstroUpdate"
+          end,
+          desc = "Update AstroNvim",
+        },
+
         ["<F2>"] = { "<cmd>NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
         ["<F3>"] = { "<cmd>TodoTelescope<CR>", desc = "Todo Search with Telescope" },
         -- open markdown preview or latex depending on the file type
