@@ -77,7 +77,7 @@ return {
         -- Set up Function keys
         ["<F1>"] = {
           function()
-            os.execute "cd ~/.config/nvim && git pull"
+            os.execute "cd ~/.config/nvim && git pull && cd"
             vim.cmd "AstroUpdate"
           end,
           desc = "Update AstroNvim",
