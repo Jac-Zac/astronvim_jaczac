@@ -58,6 +58,8 @@ return {
       },
     },
   },
+  -- Disable syntax highlighting and other things since we have another plugin for that
+  ui = { enable = false },
   opts = {
     -- dir = vim.env.HOME .. "/obsidian-vault", -- specify the vault location. no need to call 'vim.fn.expand' here
     dir = vim.env.HOME .. "/Documents/second_brain", -- specify the vault location. no need to call 'vim.fn.expand' here
