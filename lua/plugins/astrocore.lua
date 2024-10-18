@@ -85,17 +85,14 @@ return {
 
         ["<F2>"] = { "<cmd>NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
         ["<F3>"] = { "<cmd>TodoTelescope<CR>", desc = "Todo Search with Telescope" },
-        -- open markdown preview or latex depending on the file type
+
+        -- open latex compile
         ["<F4>"] = {
           function()
             local file_extension = vim.fn.expand "%:e"
-            if file_extension == "md" then
-              vim.cmd "MarkdownPreview"
-            elseif file_extension == "tex" then
-              vim.cmd "VimtexCompile"
-            end
+            if file_extension == "tex" then vim.cmd "VimtexCompile" end
           end,
-          desc = "Open markdown preview or perform tex action",
+          desc = "Compile tex",
         },
 
         -- Select virtual environment
@@ -108,10 +105,10 @@ return {
         ["<Leader>a"] = { "<cmd>Alpha<CR>", desc = "Open Alpha Dashboard" },
 
         -- fixing misspelled words
-        -- ["f"] = { "]s1z=", desc = "Fixing misspelled forward" },
-        -- ["F"] = { "[s1z=", desc = "Fixing misspelled backward" },
+        ["f"] = { "]s1z=", desc = "Fixing misspelled forward" },
+        ["F"] = { "[s1z=", desc = "Fixing misspelled backward" },
         --
-        ["<C-F>"] = { "[s1z=", desc = "Fixing misspelled backward" },
+        -- ["<C-F>"] = { "[s1z=", desc = "Fixing misspelled backward" },
         -- ["<C-S-F>"] = { "]s1z=", desc = "Fixing misspelled forward" },
       },
       t = {

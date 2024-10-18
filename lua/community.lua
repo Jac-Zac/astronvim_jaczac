@@ -12,16 +12,6 @@ return {
   --
   { import = "astrocommunity.pack.python" },
 
-  -- Markdown preview
-  -- install with yarn or npm
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function() vim.g.mkdp_filetypes = { "markdown" } end,
-    ft = { "markdown" },
-  },
-
   -- Virtual text for nvim dap
   {
     "theHamsta/nvim-dap-virtual-text",
@@ -148,10 +138,6 @@ return {
                 function() require("flash").jump() end,
                 desc = "Flash",
               },
-              ["R"] = {
-                function() require("flash").treesitter_search() end,
-                desc = "Treesitter Search",
-              },
               ["S"] = {
                 function() require("flash").treesitter() end,
                 desc = "Flash Treesitter",
@@ -161,10 +147,6 @@ return {
               ["r"] = {
                 function() require("flash").remote() end,
                 desc = "Remote Flash",
-              },
-              ["R"] = {
-                function() require("flash").treesitter_search() end,
-                desc = "Treesitter Search",
               },
               ["s"] = {
                 function() require("flash").jump() end,
@@ -203,6 +185,27 @@ return {
       },
     },
   },
+
+  -- Plugin to make markdown great again
+  "MeanderingProgrammer/render-markdown.nvim",
+  cmd = "RenderMarkdown",
+  ft = function()
+    local plugin = require("lazy.core.config").spec.plugins["render-markdown.nvim"]
+    local opts = require("lazy.core.plugin").values(plugin, "opts", false)
+    return opts.file_types or { "markdown" }
+  end,
+  dependencies = {
+    {
+      "nvim-treesitter/nvim-treesitter",
+      opts = function(_, opts)
+        if opts.ensure_installed ~= "all" then
+          opts.ensure_installed =
+            require("astrocore").list_insert_unique(opts.ensure_installed, { "html", "markdown", "markdown_inline" })
+        end
+      end,
+    },
+  },
+  opts = {},
 
   {
     "folke/noice.nvim",
