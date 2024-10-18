@@ -86,13 +86,29 @@ return {
         ["<F2>"] = { "<cmd>NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
         ["<F3>"] = { "<cmd>TodoTelescope<CR>", desc = "Todo Search with Telescope" },
 
-        -- open latex compile
+        -- open markdown preview or latex depending on the file type
         ["<F4>"] = {
           function()
             local file_extension = vim.fn.expand "%:e"
-            if file_extension == "tex" then vim.cmd "VimtexCompile" end
+            if file_extension == "md" then
+              vim.cmd "MarkdownPreview"
+            elseif file_extension == "tex" then
+              vim.cmd "VimtexCompile"
+            end
           end,
-          desc = "Compile tex",
+          desc = "Open markdown preview or perform tex action",
+        },
+
+        ["<Leader>m"] = {
+          function()
+            local file_extension = vim.fn.expand "%:e"
+            if file_extension == "md" then
+              vim.cmd "MarkdownPreview"
+            elseif file_extension == "tex" then
+              vim.cmd "VimtexCompile"
+            end
+          end,
+          desc = "Open markdown preview or perform tex action",
         },
 
         -- Select virtual environment
