@@ -18,6 +18,6 @@ vim.api.nvim_command "autocmd TermOpen * setlocal nospell"
 --     ["Foofile"] = "fooscript",
 --   },
 --   pattern = {
---     ["~/%.config/foo/.*"] = "fooscript",
+--     ["~/%.config/foo/.*"] = "foo script",
 --   },
 -- }
