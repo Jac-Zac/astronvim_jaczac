@@ -113,67 +113,44 @@ return {
 
         ["<Leader>tr"] = {
           function()
-            local file_path = vim.fn.expand "%:p"
             local file_name = vim.fn.expand "%:t"
-            local file_type = vim.fn.fnamemodify(file_path, ":e")
-            local dir_path = vim.fn.expand "%:p:h"
-            local executable_name = vim.fn.fnamemodify(file_path, ":t:r")
+            local file_type = vim.fn.expand "%:e"
+            local executable_name = vim.fn.expand "%:t:r"
 
-            local function has_makefile()
-              return vim.fn.filereadable(dir_path .. "/Makefile") == 1
-                or vim.fn.filereadable(dir_path .. "/makefile") == 1
-            end
+            local function compile_and_run(compile_cmd, run_cmd) return string.format("%s && %s", compile_cmd, run_cmd) end
 
-            local function compile_and_run(compile_cmd, run_cmd)
-              return string.format("cd %s && %s && %s", dir_path, compile_cmd, run_cmd)
-            end
+            local function interpret(interpreter) return string.format("%s %s", interpreter, file_name) end
 
-            local function interpret(interpreter)
-              return string.format("cd %s && %s %s", dir_path, interpreter, file_name)
+            local function add_header_and_clear(cmd)
+              -- Clear the terminal and add a custom header
+              return string.format("clear && echo '==== Running your code ====' && %s", cmd)
             end
 
             local commands = {
               c = function()
-                if has_makefile() then
-                  return compile_and_run("make", "./" .. executable_name)
-                else
-                  return compile_and_run(
-                    string.format("gcc %s -o %s", file_name, executable_name),
-                    "./" .. executable_name
-                  )
-                end
+                return compile_and_run("gcc " .. file_name .. " -o " .. executable_name, "./" .. executable_name)
               end,
               cpp = function()
-                if has_makefile() then
-                  return compile_and_run("make", "./" .. executable_name)
-                else
-                  return compile_and_run(
-                    string.format("g++ %s -o %s", file_name, executable_name),
-                    "./" .. executable_name
-                  )
-                end
+                return compile_and_run("g++ " .. file_name .. " -o " .. executable_name, "./" .. executable_name)
               end,
               py = function() return interpret "python" end,
               js = function() return interpret "node" end,
               lua = function() return interpret "lua" end,
-              java = function()
-                return compile_and_run(string.format("javac %s", file_name), string.format("java %s", executable_name))
-              end,
+              java = function() return compile_and_run("javac " .. file_name, "java " .. executable_name) end,
               go = function() return interpret "go run" end,
-              rust = function() return compile_and_run(string.format("rustc %s", file_name), "./" .. executable_name) end,
+              rust = function() return compile_and_run("rustc " .. file_name, "./" .. executable_name) end,
             }
 
             local cmd = commands[file_type]
             if cmd then
-              cmd = cmd() -- Execute the function to get the command string
-              require("toggleterm").exec(cmd, 1, 12, dir_path, "float")
+              -- require("toggleterm").exec(cmd(), 1, 12, nil, "float")
+              require("toggleterm").exec(add_header_and_clear(cmd()), 1, 12, nil, "float")
             else
               vim.notify("No command defined for file type: " .. file_type, vim.log.levels.WARN)
             end
           end,
           desc = "Compile and run current file",
         },
-
         -- Select virtual environment
         ["<Leader>fv"] = { "<cmd>VenvSelect<CR>", desc = "Virtual environment selector" },
 
