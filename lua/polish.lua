@@ -7,6 +7,18 @@
 -- Disable spell checking for Toggle Term
 vim.api.nvim_command "autocmd TermOpen * setlocal nospell"
 
+-- Automatically change directory when switching to a file buffer
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    -- Only run if the buffer is a normal file
+    if vim.bo.buftype == "" then
+      local dir = vim.fn.expand "%:p:h"
+      if dir ~= vim.fn.getcwd() then vim.cmd("cd " .. dir) end
+    end
+  end,
+})
+
 -- if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 --
 -- -- Set up custom filetypes
@@ -18,6 +30,6 @@ vim.api.nvim_command "autocmd TermOpen * setlocal nospell"
 --     ["Foofile"] = "fooscript",
 --   },
 --   pattern = {
---     ["~/%.config/foo/.*"] = "fooscript",
+--     ["~/%.config/foo/.*"] = "foo script",
 --   },
 -- }

@@ -111,6 +111,46 @@ return {
           desc = "Open markdown preview or perform tex action",
         },
 
+        ["<Leader>tr"] = {
+          function()
+            local file_name = vim.fn.expand "%:t"
+            local file_type = vim.fn.expand "%:e"
+            local executable_name = vim.fn.expand "%:t:r"
+
+            local function compile_and_run(compile_cmd, run_cmd) return string.format("%s && %s", compile_cmd, run_cmd) end
+
+            local function interpret(interpreter) return string.format("%s %s", interpreter, file_name) end
+
+            local function add_header_and_clear(cmd)
+              -- Clear the terminal and add a custom header
+              return string.format("clear && echo '==== Running your code ====' && %s", cmd)
+            end
+
+            local commands = {
+              c = function()
+                return compile_and_run("gcc " .. file_name .. " -o " .. executable_name, "./" .. executable_name)
+              end,
+              cpp = function()
+                return compile_and_run("g++ " .. file_name .. " -o " .. executable_name, "./" .. executable_name)
+              end,
+              py = function() return interpret "python" end,
+              js = function() return interpret "node" end,
+              lua = function() return interpret "lua" end,
+              java = function() return compile_and_run("javac " .. file_name, "java " .. executable_name) end,
+              go = function() return interpret "go run" end,
+              rust = function() return compile_and_run("rustc " .. file_name, "./" .. executable_name) end,
+            }
+
+            local cmd = commands[file_type]
+            if cmd then
+              -- require("toggleterm").exec(cmd(), 1, 12, nil, "float")
+              require("toggleterm").exec(add_header_and_clear(cmd()), 1, 12, nil, "float")
+            else
+              vim.notify("No command defined for file type: " .. file_type, vim.log.levels.WARN)
+            end
+          end,
+          desc = "Compile and run current file",
+        },
         -- Select virtual environment
         ["<Leader>fv"] = { "<cmd>VenvSelect<CR>", desc = "Virtual environment selector" },
 

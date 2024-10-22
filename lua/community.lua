@@ -197,26 +197,34 @@ return {
   },
 
   -- Plugin to make markdown great again
-  "MeanderingProgrammer/render-markdown.nvim",
-  cmd = "RenderMarkdown",
-  ft = function()
-    local plugin = require("lazy.core.config").spec.plugins["render-markdown.nvim"]
-    local opts = require("lazy.core.plugin").values(plugin, "opts", false)
-    return opts.file_types or { "markdown" }
-  end,
-  dependencies = {
-    {
-      "nvim-treesitter/nvim-treesitter",
-      opts = function(_, opts)
-        if opts.ensure_installed ~= "all" then
-          opts.ensure_installed =
-            require("astrocore").list_insert_unique(opts.ensure_installed, { "html", "markdown", "markdown_inline" })
-        end
-      end,
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    cmd = "RenderMarkdown",
+    ft = function()
+      local plugin = require("lazy.core.config").spec.plugins["render-markdown.nvim"]
+      local opts = require("lazy.core.plugin").values(plugin, "opts", false)
+      return opts.file_types or { "markdown" }
+    end,
+    dependencies = {
+      {
+        "nvim-treesitter/nvim-treesitter",
+        opts = function(_, opts)
+          if opts.ensure_installed ~= "all" then
+            opts.ensure_installed =
+              require("astrocore").list_insert_unique(opts.ensure_installed, { "html", "markdown", "markdown_inline" })
+          end
+        end,
+      },
     },
+    opts = {},
+    config = function()
+      require("obsidian").get_client().opts.ui.enable = false
+      vim.api.nvim_buf_clear_namespace(0, vim.api.nvim_get_namespaces()["ObsidianUI"], 0, -1)
+      require("render-markdown").setup {}
+    end,
   },
-  opts = {},
 
+  -- Noice nvim
   {
     "folke/noice.nvim",
     event = "VeryLazy",
