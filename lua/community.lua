@@ -185,7 +185,7 @@ return {
       modes = {
         -- Enable custom search
         search = {
-          enabled = true,
+          enabled = false,
         },
         char = {
           -- Disable other keys for flash I only care about s and better search
