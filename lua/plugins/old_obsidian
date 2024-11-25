@@ -1,5 +1,6 @@
 -- Configuration for Obsidian Plugin
 -- Define prefix
+
 local prefix = "<Leader>o"
 return {
   -- -- Obsidian
