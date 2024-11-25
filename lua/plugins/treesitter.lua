@@ -14,6 +14,7 @@ return {
       "python",
       "cpp",
       "latex",
+      "jsonc",
       -- add more arguments for adding more treesitter parsers
     })
   end,
