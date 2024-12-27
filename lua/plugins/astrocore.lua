@@ -113,6 +113,9 @@ return {
 
         ["<Leader>tr"] = {
           function()
+            -- Automatically save the current file before running any command
+            vim.cmd "update" -- This will save the current buffer if it has been modified
+
             local file_name = vim.fn.expand "%:t"
             local file_type = vim.fn.expand "%:e"
             local executable_name = vim.fn.expand "%:t:r"
@@ -133,7 +136,7 @@ return {
               cpp = function()
                 return compile_and_run("g++ " .. file_name .. " -o " .. executable_name, "./" .. executable_name)
               end,
-              py = function() return interpret "python" end,
+              py = function() return interpret "python3" end,
               js = function() return interpret "node" end,
               lua = function() return interpret "lua" end,
               java = function() return compile_and_run("javac " .. file_name, "java " .. executable_name) end,
@@ -151,6 +154,7 @@ return {
           end,
           desc = "Compile and run current file",
         },
+
         -- Select virtual environment
         ["<Leader>fv"] = { "<cmd>VenvSelect<CR>", desc = "Virtual environment selector" },
 
