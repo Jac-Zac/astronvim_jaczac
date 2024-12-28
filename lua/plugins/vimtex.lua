@@ -15,6 +15,9 @@ return {
       },
     }
 
+    -- Set Biber as the bibliography backend
+    vim.g.Tex_CompileRule_pdf = "arara -v $*"
+
     -- Configure Skim as the PDF viewer
     vim.g.vimtex_view_method = "skim"
     vim.g.vimtex_view_skim_sync = 1 -- SyncTeX enabled for Skim
@@ -26,11 +29,11 @@ return {
     -- Disable VimTeX quickfix auto-open
     vim.g.vimtex_quickfix_open_on_warning = 0
 
-    -- Use nvim-notify for error and warning notifications only
-    vim.cmd [[
-        autocmd User VimtexEventCompileFailed lua require("notify")("Compilation error detected!", "error")
-        autocmd User VimtexEventCompileWarning lua require("notify")("Compilation completed with warnings!", "warn")
-    ]]
+    -- -- Use nvim-notify for error and warning notifications only
+    -- vim.cmd [[
+    --     autocmd User VimtexEventCompileFailed lua require("notify")("Compilation error detected!", "error")
+    --     autocmd User VimtexEventCompileWarning lua require("notify")("Compilation completed with warnings!", "warn")
+    -- ]]
 
     -- Auto-save on CursorHold to trigger continuous compilation
     vim.api.nvim_create_autocmd("CursorHold", {
