@@ -19,6 +19,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end,
 })
 
+-- Automatic fold peeking with delay
+vim.api.nvim_create_autocmd("CursorMoved", {
+  pattern = "*",
+  callback = function()
+    vim.defer_fn(function() require("ufo").peekFoldedLinesUnderCursor() end, 100) -- 100ms delay
+  end,
+})
+
 -- if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 --
 -- -- Set up custom filetypes
