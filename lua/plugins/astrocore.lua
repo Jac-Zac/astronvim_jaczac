@@ -166,8 +166,8 @@ return {
         ["<Leader>a"] = { "<cmd>Alpha<CR>", desc = "Open Alpha Dashboard" },
 
         -- fixing misspelled words
-        ["f"] = { "]s1z=", desc = "Fixing misspelled forward" },
-        ["F"] = { "[s1z=", desc = "Fixing misspelled backward" },
+        ["F"] = { "]s1z=", desc = "Fixing misspelled forward" },
+        ["f"] = { "[s1z=", desc = "Fixing misspelled backward" },
         --
         -- ["<C-F>"] = { "[s1z=", desc = "Fixing misspelled backward" },
         -- ["<C-S-F>"] = { "]s1z=", desc = "Fixing misspelled forward" },
