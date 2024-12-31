@@ -147,7 +147,8 @@ return {
             local cmd = commands[file_type]
             if cmd then
               -- Clear the terminal first and then run the command
-              require("toggleterm").exec(add_header_and_clear(cmd()), 1, 12, nil, "float")
+              -- require("toggleterm").exec(add_header_and_clear(cmd()), 1, 12, nil, "float")
+              require("toggleterm").exec(add_header_and_clear(cmd()), 12, 60, nil, "vertical")
             else
               vim.notify("No command defined for file type: " .. file_type, vim.log.levels.WARN)
             end
