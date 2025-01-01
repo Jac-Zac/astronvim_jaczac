@@ -35,6 +35,7 @@ return {
         conceallevel = 2, --set concelelevel to the max
       },
       g = { -- vim.g.<key>
+        python3_host_prog = vim.fn.expand "~/.config/python_libraries/virtualenvs/neovim/bin/python3",
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
@@ -99,7 +100,7 @@ return {
           desc = "Open markdown preview or perform tex action",
         },
 
-        ["<Leader>m"] = {
+        [",m"] = {
           function()
             local file_extension = vim.fn.expand "%:e"
             if file_extension == "md" then
@@ -161,8 +162,6 @@ return {
 
         -- disable the mapping
         ["<Leader>/"] = false, -- disabling for comment
-        ["<Leader>o"] = false, -- disabling for obsidian
-        ["<Leader>h"] = false, -- disabling it for harpoon
         ["<Leader>a"] = { "<cmd>Alpha<CR>", desc = "Open Alpha Dashboard" },
 
         -- fixing misspelled words
