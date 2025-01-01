@@ -14,13 +14,13 @@ return {
 
   -- Markdown preview
   -- install with yarn or npm
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && yarn install",
-    init = function() vim.g.mkdp_filetypes = { "markdown" } end,
-    ft = { "markdown" },
-  },
+  -- {
+  --   "iamcco/markdown-preview.nvim",
+  --   cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  --   build = "cd app && yarn install",
+  --   init = function() vim.g.mkdp_filetypes = { "markdown" } end,
+  --   ft = { "markdown" },
+  -- },
 
   -- Virtual text for nvim dap
   {
@@ -203,7 +203,19 @@ return {
     ft = function()
       local plugin = require("lazy.core.config").spec.plugins["render-markdown.nvim"]
       local opts = require("lazy.core.plugin").values(plugin, "opts", false)
-      return opts.file_types or { "markdown" }
+      -- Get the default file types or set to markdown if not specified
+      local file_types = opts.file_types or { "markdown" }
+
+      -- Exclude QMD files
+      for i, v in ipairs(file_types) do
+        if v == "qmd" then
+          table.remove(file_types, i)
+          break
+        end
+      end
+
+      -- return opts.file_types or { "markdown" }
+      return file_types
     end,
     dependencies = {
       {
