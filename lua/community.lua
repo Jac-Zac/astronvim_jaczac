@@ -12,6 +12,12 @@ return {
   --
   { import = "astrocommunity.pack.python" },
 
+  {
+    "vhyrro/luarocks.nvim",
+    priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
+    config = true,
+  },
+
   -- Markdown preview
   -- install with yarn or npm
   -- {
@@ -200,6 +206,7 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     cmd = "RenderMarkdown",
+    -- ft = { "markdown"},
     ft = function()
       local plugin = require("lazy.core.config").spec.plugins["render-markdown.nvim"]
       local opts = require("lazy.core.plugin").values(plugin, "opts", false)
