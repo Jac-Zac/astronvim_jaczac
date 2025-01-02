@@ -1,12 +1,20 @@
+---@type LazySpec
 return {
   "GCBallesteros/jupytext.nvim",
   config = true,
-  -- lazy = true,
-  event = "VeryLazy",
-  ops = {
-    style = "markdown",
-    output_extension = "md",
-    force_ft = "markdown",
+  -- event = "VeryLazy",
+  opts = {
+    custom_language_formatting = {
+      python = {
+        extension = "qmd",
+        style = "quarto",
+        force_ft = "quarto",
+      },
+      r = {
+        extension = "qmd",
+        style = "quarto",
+        force_ft = "quarto",
+      },
+    },
   },
-  -- Depending on your nvim distro or config you may need to make the loading not lazy
 }

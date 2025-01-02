@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   "3rd/image.nvim",
   ft = { "markdown", "vimwiki" },
