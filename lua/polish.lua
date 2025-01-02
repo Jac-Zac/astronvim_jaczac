@@ -60,7 +60,9 @@ vim.api.nvim_create_autocmd("BufAdd", {
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = { "*.ipynb" },
   callback = function(e)
-    if vim.api.nvim_get_vvar "vim_did_enter" ~= 1 then imb(e) end
+    if vim.api.nvim_get_vvar "vim_did_enter" ~= 1 then
+      imb(e) -- Your existing function call
+    end
   end,
 })
 
@@ -69,18 +71,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "*.ipynb" },
   callback = function()
     if require("molten.status").initialized() == "Molten" then vim.cmd "MoltenExportOutput!" end
-  end,
-})
-
--- Custom keybinding for quarto files to run cells easily and go to the next one
--- Change this to use quarto cell and no need to move to next
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  callback = function()
-    vim.keymap.set("n", "<C-CR>", function()
-      vim.cmd "MoltenReevaluateCell"
-      vim.cmd "MoltenNext"
-    end, { buffer = true, desc = "Evaluate cell and go to the next one" })
   end,
 })
 

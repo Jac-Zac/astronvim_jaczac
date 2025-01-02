@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "3rd/image.nvim",
-  ft = { "markdown", "vimwiki" },
+  ft = { "markdown", "vimwiki", "quarto" },
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter",
@@ -16,7 +16,7 @@ return {
   },
   opts = {
     backend = "kitty",
-    processor = "magick_cli", -- or "magick_rock"
+    processor = "magick_rock", -- or "magick_rock"
     integrations = {
       markdown = {
         enabled = true,
@@ -24,7 +24,7 @@ return {
         download_remote_images = true,
         -- only_render_image_at_cursor = true,
         only_render_image_at_cursor = false,
-        filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
+        filetypes = { "markdown", "vimwiki", "quarto" },
       },
       neorg = {
         enabled = true,
