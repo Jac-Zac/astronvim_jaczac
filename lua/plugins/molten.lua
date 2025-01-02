@@ -3,7 +3,6 @@ return {
   {
     "benlubas/molten-nvim",
     ft = { "quarto", "markdown" },
-    -- event = "VeryLazy",
     dependencies = {
       "3rd/image.nvim",
       "GCBallesteros/jupytext.nvim",

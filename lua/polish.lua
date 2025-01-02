@@ -73,8 +73,9 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 -- Custom keybinding for quarto files to run cells easily and go to the next one
+-- Change this to use quarto cell and no need to move to next
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "quarto",
+  pattern = "markdown",
   callback = function()
     vim.keymap.set("n", "<C-CR>", function()
       vim.cmd "MoltenReevaluateCell"

@@ -200,23 +200,24 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     cmd = "RenderMarkdown",
-    ft = function()
-      local plugin = require("lazy.core.config").spec.plugins["render-markdown.nvim"]
-      local opts = require("lazy.core.plugin").values(plugin, "opts", false)
-      -- Get the default file types or set to markdown if not specified
-      local file_types = opts.file_types or { "markdown" }
-
-      -- Exclude QMD files
-      for i, v in ipairs(file_types) do
-        if v == "qmd" then
-          table.remove(file_types, i)
-          break
-        end
-      end
-
-      -- return opts.file_types or { "markdown" }
-      return file_types
-    end,
+    ft = { "markdown" },
+    -- ft = function()
+    --   local plugin = require("lazy.core.config").spec.plugins["render-markdown.nvim"]
+    --   local opts = require("lazy.core.plugin").values(plugin, "opts", false)
+    --   -- Get the default file types or set to markdown if not specified
+    --   local file_types = opts.file_types or { "markdown" }
+    --
+    --   -- Exclude QMD files
+    --   for i, v in ipairs(file_types) do
+    --     if v == "qmd" then
+    --       table.remove(file_types, i)
+    --       break
+    --     end
+    --   end
+    --
+    --   -- return opts.file_types or { "markdown" }
+    --   return file_types
+    -- end,
     dependencies = {
       {
         "nvim-treesitter/nvim-treesitter",

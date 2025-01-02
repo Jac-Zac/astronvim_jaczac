@@ -2,19 +2,21 @@
 return {
   "GCBallesteros/jupytext.nvim",
   config = true,
-  -- event = "VeryLazy",
   opts = {
-    custom_language_formatting = {
-      python = {
-        extension = "qmd",
-        style = "quarto",
-        force_ft = "quarto",
-      },
-      r = {
-        extension = "qmd",
-        style = "quarto",
-        force_ft = "quarto",
-      },
-    },
+    -- custom_language_formatting = {
+    style = "markdown",
+    output_extension = "md",
+    force_ft = "markdown",
+    -- python = {
+    --   extension = "qmd",
+    --   style = "quarto",
+    --   force_ft = "quarto",
+    -- },
+    -- r = {
+    --   extension = "qmd",
+    --   style = "quarto",
+    --   force_ft = "quarto",
+    -- },
+    -- },
   },
 }

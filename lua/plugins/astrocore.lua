@@ -167,9 +167,6 @@ return {
         -- fixing misspelled words
         ["F"] = { "]s1z=", desc = "Fixing misspelled forward" },
         ["f"] = { "[s1z=", desc = "Fixing misspelled backward" },
-        --
-        -- ["<C-F>"] = { "[s1z=", desc = "Fixing misspelled backward" },
-        -- ["<C-S-F>"] = { "]s1z=", desc = "Fixing misspelled forward" },
       },
       t = {
         -- setting a mapping to false will disable it
