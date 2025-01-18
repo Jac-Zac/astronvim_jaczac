@@ -30,7 +30,7 @@ return {
 
       -- Automatically activate otter for specified file types
       vim.api.nvim_create_autocmd({ "BufRead", "BufEnter", "BufNewFile" }, {
-        pattern = { "*.qmd", "*.ipynb" }, -- Adjust patterns as necessary
+        pattern = { "*.qmd", "*.md", "*.ipynb" }, -- Adjust patterns as necessary
         callback = function()
           local otter = require "otter"
           otter.activate() -- Activate otter for the current buffer

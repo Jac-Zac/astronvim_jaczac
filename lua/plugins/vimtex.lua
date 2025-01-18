@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "lervag/vimtex",
-
+  ft = { "tex" },
   init = function()
     -- Set the build directory to .tex_build
     vim.g.vimtex_compiler_latexmk = {
@@ -42,7 +42,7 @@ return {
     })
   end,
 
-  lazy = false,
+  -- lazy = true,
   dependencies = {
     "AstroNvim/astrocore",
     opts = {
