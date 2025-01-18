@@ -7,6 +7,10 @@ return {
     style = "markdown",
     output_extension = "md",
     force_ft = "markdown",
+    -- style = "quarto",
+    -- output_extension = "qmd",
+    -- force_ft = "quarto",
+
     -- python = {
     --   extension = "qmd",
     --   style = "quarto",

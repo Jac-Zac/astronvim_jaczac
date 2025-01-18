@@ -214,12 +214,12 @@ return {
       local file_types = opts.file_types or { "markdown" }
 
       -- Exclude QMD files
-      for i, v in ipairs(file_types) do
-        if v == "qmd" then
-          table.remove(file_types, i)
-          break
-        end
-      end
+      -- for i, v in ipairs(file_types) do
+      --   if v == "qmd" then
+      --     table.remove(file_types, i)
+      --     break
+      --   end
+      -- end
 
       -- return opts.file_types or { "markdown" }
       return file_types
