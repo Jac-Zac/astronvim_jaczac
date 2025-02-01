@@ -164,6 +164,15 @@ return {
         ["<Leader>/"] = false, -- disabling for comment
         ["<Leader>a"] = { "<cmd>Alpha<CR>", desc = "Open Alpha Dashboard" },
 
+        -- Set zen model and line wrap --
+        ["<Leader>z"] = {
+          function()
+            vim.wo.wrap = not vim.wo.wrap -- Toggle line wrap
+            vim.cmd "ZenMode" -- Toggle ZenMode
+          end,
+          desc = "Toggle Folding and ZenMode",
+        },
+
         -- fixing misspelled words
         ["F"] = { "]s1z=", desc = "Fixing misspelled forward" },
         ["f"] = { "[s1z=", desc = "Fixing misspelled backward" },
