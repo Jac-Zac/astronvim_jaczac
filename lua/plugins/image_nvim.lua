@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "3rd/image.nvim",
-  ft = { "markdown", "vimwiki", "quarto" },
+  ft = { "markdown", "vimwiki", "quartr" },
   dependencies = {
     {
       "nvim-treesitter/nvim-treesitter",
@@ -16,7 +16,7 @@ return {
   },
   opts = {
     backend = "kitty",
-    processor = "magick_rock", -- or "magick_rock"
+    processor = "magick_rock", -- or "magick_cli"
     integrations = {
       markdown = {
         enabled = true,
