@@ -42,6 +42,28 @@ return {
       end,
     },
     {
+      "AstroNvim/astrolsp",
+      optional = true,
+      ---@param opts AstroLSPOpts
+      opts = function(_, opts)
+        local noice_opts = require("astrocore").plugin_opts "noice.nvim"
+        -- disable the necessary handlers in AstroLSP
+        if not opts.defaults then opts.defaults = {} end
+        -- TODO: remove lsp_handlers when dropping support for AstroNvim v4
+        if not opts.lsp_handlers then opts.lsp_handlers = {} end
+        if vim.tbl_get(noice_opts, "lsp", "hover", "enabled") ~= false then
+          opts.defaults.hover = false
+          opts.lsp_handlers["textDocument/hover"] = false
+        end
+        if vim.tbl_get(noice_opts, "lsp", "signature", "enabled") ~= false then
+          opts.defaults.signature_help = false
+          opts.lsp_handlers["textDocument/signatureHelp"] = false
+          if not opts.features then opts.features = {} end
+          opts.features.signature_help = false
+        end
+      end,
+    },
+    {
       "rebelot/heirline.nvim",
       optional = true,
       opts = function(_, opts)
@@ -62,12 +84,6 @@ return {
           filter = function(_, win) return vim.api.nvim_win_get_config(win).relative == "" end,
         })
       end,
-    },
-    {
-      "catppuccin",
-      optional = true,
-      ---@type CatppuccinOptions
-      opts = { integrations = { noice = true } },
     },
   },
 }
