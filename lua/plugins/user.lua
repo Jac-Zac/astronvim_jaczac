@@ -58,14 +58,8 @@ return {
     priority = 1000,
 
     init = function()
-      -- local colors = require("catppuccin.palettes").get_palette()
-      local colors = require("nightfox.palette").load "nordfox"
-      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = colors.blue.base })
-      vim.api.nvim_set_hl(0, "SnacksDashboardProject", { fg = colors.yellow.base })
-      vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = colors.yellow.base })
-      vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = colors.green.base })
-      vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = colors.cyan.base })
-      vim.api.nvim_set_hl(0, "SnacksDashboardFooter", { fg = colors.orange.base })
+      local colors = require("catppuccin.palettes").get_palette()
+      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = colors.pink }) -- 'text' is usually the white-equivalent
     end,
     opts = function(_, opts)
       local get_icon = require("astroui").get_icon
@@ -91,7 +85,7 @@ return {
             "| | | | | | | | | | | | |\\ \\| | |/ /| | | | | |\\ \\| | | | | | | | | | | |",
             "#########################/ /#####\\ \\###########/ /#######################",
             "| | | | | | | | | | | | |\\/| | | |\\/| | | | | |\\/ | | | | | | | | | | | |",
-            "|_|_|_|_|_|_|_|_|_| Jac Zac Custom AstroNvim config |_|_|_|_|_|_|_|_|_|_|",
+            "|_|_|_|_|_|_|_|_|_|_|_ Tina Custom AstroNvim config |_|_|_|_|_|_|_|_|_|_|",
           }, "\n"),
 
           keys = {
