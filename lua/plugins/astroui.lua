@@ -11,7 +11,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "nordfox",
+    colorscheme = "catppuccin-macchiato",
     -- Icons can be configured throughout the interface
     icons = {
       -- configure the loading of the lsp in the status line
