@@ -58,8 +58,9 @@ return {
           keys = {
             { key = "o", action = "<Leader>fo", icon = get_icon("DefaultFile", 0, true), desc = "Recents  " },
             { key = "'", action = "<Leader>ht", icon = get_icon("Bookmarks", 0, true), desc = "Harpooon  " },
-            { key = "f", action = "<Leader>ff", icon = get_icon("Search", 0, true), desc = "Find File  " },
+            { key = "p", action = "<Leader>fp", icon = get_icon("FolderOpen", 0, true), desc = "Find Project  " },
             { key = "w", action = "<Leader>fw", icon = get_icon("WordFile", 0, true), desc = "Find Word  " },
+            { key = "f", action = "<Leader>ff", icon = get_icon("Search", 0, true), desc = "Find File  " },
             { key = "s", action = "<Leader>Sl", icon = get_icon("Refresh", 0, true), desc = "Last Session  " },
           },
         },

@@ -4,7 +4,6 @@ return {
   branch = "harpoon2",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
     { "AstroNvim/astroui", opts = { icons = { Harpoon = "󱡀" } } },
     {
       "AstroNvim/astrocore",
@@ -32,7 +31,7 @@ return {
         -- }
         maps.n[prefix .. "p"] = { function() require("harpoon"):list():prev() end, desc = "Goto previous mark" }
         maps.n[prefix .. "n"] = { function() require("harpoon"):list():next() end, desc = "Goto next mark" }
-        maps.n[prefix .. "t"] = { "<Cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" }
+        -- maps.n[prefix .. "t"] = { "<Cmd>Telescope harpoon marks<CR>", desc = "Show marks in Telescope" }
       end,
     },
   },

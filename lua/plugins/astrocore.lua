@@ -66,7 +66,7 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
 
         -- setting a mapping to false will disable it
-        ["<C-s>"] = { ":wq!<cr>", desc = "Save File" }, -- change description but the same command
+        -- ["<C-s>"] = { ":wq!<cr>", desc = "Save File" }, -- change description but the same command
 
         --
         -- tables with the `name` key will be registered with which-key if it's installed

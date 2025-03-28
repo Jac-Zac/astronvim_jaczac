@@ -16,6 +16,7 @@ return {
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   { import = "astrocommunity.media.image-nvim" },
   { import = "astrocommunity.color.twilight-nvim" },
+  { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.media.img-clip-nvim" },
 
   -- import/override with your plugins folder
