@@ -26,7 +26,13 @@ return {
 
     init = function()
       -- local colors = require("catppuccin.palettes").get_palette()
-      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#a3be8c" }) -- 'text' is usually the white-equivalent
+      local colors = require("nightfox.palette").load "nordfox"
+      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = colors.blue.base })
+      vim.api.nvim_set_hl(0, "SnacksDashboardProject", { fg = colors.yellow.base })
+      vim.api.nvim_set_hl(0, "SnacksDashboardIcon", { fg = colors.yellow.base })
+      vim.api.nvim_set_hl(0, "SnacksDashboardDesc", { fg = colors.green.base })
+      vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = colors.cyan.base })
+      vim.api.nvim_set_hl(0, "SnacksDashboardFooter", { fg = colors.orange.base })
     end,
     opts = function(_, opts)
       local get_icon = require("astroui").get_icon
@@ -71,24 +77,23 @@ return {
             -- pane = 2,
             icon = " ",
             desc = "Browse Repo",
-            padding = 1,
+            padding = 3,
             key = "b",
             action = function() Snacks.gitbrowse() end,
           },
-          -- { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1, pane = 2 },
           -- { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1, pane = 2 },
-          {
-            -- pane = 2,
-            icon = " ",
-            title = "Git Status",
-            section = "terminal",
-            enabled = function() return Snacks.git.get_root() ~= nil end,
-            cmd = "git status --short --branch --renames",
-            height = 5,
-            padding = 1,
-            ttl = 5 * 60,
-            indent = 3,
-          },
+          -- {
+          --   -- pane = 2,
+          --   icon = " ",
+          --   title = "Git Status",
+          --   section = "terminal",
+          --   enabled = function() return Snacks.git.get_root() ~= nil end,
+          --   cmd = "git status --short --branch --renames",
+          --   height = 5,
+          --   padding = 1,
+          --   ttl = 5 * 60,
+          --   indent = 3,
+          -- },
           { section = "startup" },
         },
       }
