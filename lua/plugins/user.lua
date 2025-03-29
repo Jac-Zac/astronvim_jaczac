@@ -17,6 +17,14 @@ return {
   },
 
   -- == Examples of Overriding Plugins ==
+  -- Configure to view images automatically
+  {
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      image = { doc = { enabled = true } },
+    },
+  },
 
   -- customize dashboard options:lua Snacks.dashboard(
   {
