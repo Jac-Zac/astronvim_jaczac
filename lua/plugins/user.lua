@@ -59,7 +59,8 @@ return {
 
     init = function()
       local colors = require("catppuccin.palettes").get_palette()
-      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = colors.pink }) -- 'text' is usually the white-equivalent
+      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = colors.pink })
+      vim.api.nvim_set_hl(0, "SnacksDashboardKey", { fg = colors.blue })
     end,
     opts = function(_, opts)
       local get_icon = require("astroui").get_icon
