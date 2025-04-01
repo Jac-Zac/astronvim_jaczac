@@ -137,8 +137,15 @@ return {
         ["<Leader>uZ"] = {
           function()
             require("snacks").toggle.zen():toggle() -- Toggle Zen Mode
-            vim.wo.wrap = not vim.wo.wrap -- Toggle line wrap
-            vim.cmd "Twilight" -- Toggle Twilight
+            require("astrocore.toggles").wrap() -- Toggle line wrap
+            -- Toggle Twilight
+            if vim.g.twilight_enabled then
+              vim.cmd "TwilightDisable" -- Disable Twilight
+              vim.g.twilight_enabled = false
+            else
+              vim.cmd "TwilightEnable" -- Enable Twilight
+              vim.g.twilight_enabled = true
+            end
           end,
           desc = "Toggle Folding and ZenMode",
         },

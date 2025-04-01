@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
@@ -42,6 +42,8 @@ return {
       -- "pyright",
       -- "clangd", -- For C and C++
       -- "marksman", -- For Markdown
+      -- "texlab", -- completion, linting, and formatting for LaTeX
+      -- "ltex-ls",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
