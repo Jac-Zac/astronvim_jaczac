@@ -14,9 +14,9 @@ return {
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
   { import = "astrocommunity.debugging.nvim-dap-repl-highlights" },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
-  { import = "astrocommunity.color.twilight-nvim" },
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.media.img-clip-nvim" },
+  { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
 
   -- import/override with your plugins folder
 }
