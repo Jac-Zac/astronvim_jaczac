@@ -77,6 +77,8 @@ return {
           function()
             os.execute "cd ~/.config/nvim && git stash && git pull && git stash pop && cd"
             vim.cmd "AstroUpdate"
+            vim.cmd "MasonUpdate"
+            vim.cmd "Lazy update"
           end,
           desc = "Update AstroNvim",
         },

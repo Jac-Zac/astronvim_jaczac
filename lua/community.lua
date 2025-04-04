@@ -17,6 +17,9 @@ return {
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.media.img-clip-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  -- Runs privately
+  -- { import = "astrocommunity.pack.harper" }, -- Similar to grammarly
+  -- { import = "astrocommunity.motion.mini-surround" },
 
   -- import/override with your plugins folder
 }

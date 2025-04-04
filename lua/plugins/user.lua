@@ -22,7 +22,14 @@ return {
     "folke/snacks.nvim",
     ---@type snacks.Config
     opts = {
-      image = { doc = { enabled = true } },
+      image = {
+        doc = {
+          enabled = true,
+          -- Only show the image when hovering over it
+          inline = false,
+        },
+        float = true,
+      },
     },
   },
 
