@@ -76,8 +76,8 @@ return {
         ["<F1>"] = {
           function()
             os.execute "cd ~/.config/nvim && git stash && git pull && git stash pop && cd"
-            vim.cmd "AstroUpdate"
             vim.cmd "MasonUpdate"
+            vim.cmd "AstroUpdate"
             vim.cmd "Lazy update"
           end,
           desc = "Update AstroNvim",
@@ -141,13 +141,14 @@ return {
             require("snacks").toggle.zen():toggle() -- Toggle Zen Mode
             require("snacks").toggle.dim():toggle() -- Toggle Dim Mode
             require("astrocore.toggles").wrap() -- Toggle line wrap
+            vim.cmd "LspStop"
           end,
           desc = "Toggle Folding and ZenMode",
         },
 
         -- fixing misspelled words
-        ["F"] = { "]s1z=", desc = "Fixing misspelled forward" },
-        ["f"] = { "[s1z=", desc = "Fixing misspelled backward" },
+        -- ["F"] = { "]s1z=", desc = "Fixing misspelled forward" },
+        ["<C-f>"] = { "[s1z=", desc = "Fixing misspelled backward" },
       },
 
       v = {
