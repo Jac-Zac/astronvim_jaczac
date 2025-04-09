@@ -53,8 +53,8 @@ return {
         },
         char = {
           -- Disable other keys for flash I only care about s and better search
-          enabled = false,
-          -- keys = { "f", "F", "t", "T", ";", "," },
+          -- enabled = false,
+          keys = { "f", "F", "t", "T", ";", "," },
         },
       },
     },
