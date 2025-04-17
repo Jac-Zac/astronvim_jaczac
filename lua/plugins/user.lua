@@ -30,6 +30,21 @@ return {
         },
         float = true,
       },
+
+      zen = {
+        toggles = {
+          dim = true,
+        },
+      },
+      dim = {
+        ---@type snacks.animate.Config|{enabled?: boolean}
+        animate = {
+          duration = {
+            step = 0, -- ms per step
+            total = 0, -- maximum duration
+          },
+        },
+      },
     },
   },
 

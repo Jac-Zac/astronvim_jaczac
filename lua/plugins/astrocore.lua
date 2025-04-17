@@ -130,7 +130,7 @@ return {
         },
 
         -- Select virtual environment
-        ["<Leader>fv"] = { "<cmd>VenvSelect<CR>", desc = "Virtual environment selector" },
+        -- ["<Leader>fv"] = { "<cmd>VenvSelect<CR>", desc = "Virtual environment selector" },
 
         -- disabing mapping to close buffer
         ["<Leader>c"] = { "gcc", remap = true, desc = "Toggle comment line" },
@@ -140,7 +140,6 @@ return {
         ["<Leader>uZ"] = {
           function()
             require("snacks").toggle.zen():toggle() -- Toggle Zen Mode
-            require("snacks").toggle.dim():toggle() -- Toggle Dim Mode
             require("astrocore.toggles").wrap() -- Toggle line wrap
             vim.cmd "LspStop"
           end,
