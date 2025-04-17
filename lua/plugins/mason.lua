@@ -13,14 +13,12 @@ return {
       ensure_installed = {
         -- install language servers
         "lua-language-server",
-        "clangd",
         "texlab",
         "marksman",
 
         -- install formatters
         "stylua",
         "black",
-        "clang-format",
         "latexindent",
 
         -- install debuggers

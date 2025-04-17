@@ -39,7 +39,6 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright",
       -- "clangd", -- For C and C++
       -- "marksman", -- For Markdown
       -- "texlab", -- completion, linting, and formatting for LaTeX

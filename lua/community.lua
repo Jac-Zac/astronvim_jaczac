@@ -9,6 +9,7 @@ return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.nightfox-nvim" },
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
