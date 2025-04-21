@@ -10,6 +10,7 @@ return {
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.typst" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.nightfox-nvim" },
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
@@ -18,7 +19,7 @@ return {
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.media.img-clip-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
-  -- { import = "astrocommunity.pack.harper" },
+  { import = "astrocommunity.motion.flash-nvim" },
 
   -- Runs privately
   -- { import = "astrocommunity.pack.harper" }, -- Similar to grammarly
