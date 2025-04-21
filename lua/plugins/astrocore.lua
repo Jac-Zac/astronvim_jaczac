@@ -129,9 +129,6 @@ return {
           desc = "Close all buffers except current",
         },
 
-        -- Select virtual environment
-        -- ["<Leader>fv"] = { "<cmd>VenvSelect<CR>", desc = "Virtual environment selector" },
-
         -- disabing mapping to close buffer
         ["<Leader>c"] = { "gcc", remap = true, desc = "Toggle comment line" },
         ["<Leader>/"] = false,
@@ -146,9 +143,13 @@ return {
           desc = "Toggle Folding and ZenMode",
         },
 
+        ["<C-f>"] = { "[s1z=", desc = "Fixing misspelled backward" },
+
+        -- OLd configs
         -- fixing misspelled words
         -- ["F"] = { "]s1z=", desc = "Fixing misspelled forward" },
-        ["<C-f>"] = { "[s1z=", desc = "Fixing misspelled backward" },
+        -- Select virtual environment
+        -- ["<Leader>fv"] = { "<cmd>VenvSelect<CR>", desc = "Virtual environment selector" },
       },
 
       v = {

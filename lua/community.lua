@@ -18,6 +18,7 @@ return {
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.media.img-clip-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  -- { import = "astrocommunity.pack.harper" },
 
   -- Runs privately
   -- { import = "astrocommunity.pack.harper" }, -- Similar to grammarly

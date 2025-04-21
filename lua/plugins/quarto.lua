@@ -2,10 +2,9 @@
 return {
   {
     "quarto-dev/quarto-nvim",
-    ft = { "quarto", "markdown" },
+    ft = { "quarto", "markdown", "qmd", "md" },
     dependencies = {
-      "jmbuhr/otter.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      { "jmbuhr/otter.nvim" },
     },
     config = function()
       local quarto = require "quarto"
@@ -55,6 +54,31 @@ return {
         function() runner.run_all(true) end,
         { desc = "run all cells of all languages", silent = true }
       )
+    end,
+  },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    optional = true,
+    opts = function(_, opts)
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
+          "r",
+          "python",
+          "markdown",
+          "markdown_inline",
+          "julia",
+          "bash",
+          "yaml",
+          "lua",
+          "vim",
+          "query",
+          "vimdoc",
+          "latex",
+          "html",
+          "css",
+        })
+      end
     end,
   },
 }
