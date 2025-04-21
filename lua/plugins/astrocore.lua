@@ -107,6 +107,8 @@ return {
               vim.cmd "MarkdownPreview"
             elseif file_extension == "tex" then
               vim.cmd "VimtexCompile"
+            elseif file_extension == "typ" then
+              vim.cmd "TypstPreview"
             end
           end,
           desc = "Open markdown preview or perform tex action",
