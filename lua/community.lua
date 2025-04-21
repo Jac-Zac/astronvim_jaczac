@@ -22,7 +22,6 @@ return {
   { import = "astrocommunity.motion.flash-nvim" },
 
   -- Runs privately
-  -- { import = "astrocommunity.pack.harper" }, -- Similar to grammarly
   -- { import = "astrocommunity.motion.mini-surround" },
 
   -- import/override with your plugins folder
