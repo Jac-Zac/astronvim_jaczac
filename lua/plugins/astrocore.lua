@@ -146,7 +146,6 @@ return {
         },
 
         ["<C-f>"] = { "[s1z=", desc = "Fixing misspelled backward" },
-        ["<C-t>"] = { "<cmd>silent !tmux neww tmux-sessionizer<CR>", desc = "Calling tmux sessionizer script" },
 
         -- OLd configs
         -- fixing misspelled words
