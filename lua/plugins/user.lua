@@ -93,7 +93,7 @@ return {
 
           keys = {
             { key = "o", action = "<Leader>fo", icon = get_icon("DefaultFile", 0, true), desc = "Recents  " },
-            { key = "'", action = "<Leader>ht", icon = get_icon("Bookmarks", 0, true), desc = "Harpooon  " },
+            -- { key = "'", action = "<Leader>ht", icon = get_icon("Bookmarks", 0, true), desc = "Harpooon  " },
             { key = "p", action = "<Leader>fp", icon = get_icon("FolderOpen", 0, true), desc = "Find Project  " },
             { key = "w", action = "<Leader>fw", icon = get_icon("WordFile", 0, true), desc = "Find Word  " },
             { key = "f", action = "<Leader>ff", icon = get_icon("Search", 0, true), desc = "Find File  " },
@@ -132,6 +132,7 @@ return {
 
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
+  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   -- {
