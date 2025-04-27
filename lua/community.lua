@@ -20,6 +20,8 @@ return {
   { import = "astrocommunity.media.img-clip-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.motion.flash-nvim" },
+  { import = "astrocommunity.file-explorer.oil-nvim" },
+  -- { import = "astrocommunity.test.neotest" },
 
   -- Runs privately
   -- { import = "astrocommunity.motion.mini-surround" },
