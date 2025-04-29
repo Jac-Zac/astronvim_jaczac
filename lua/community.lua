@@ -19,7 +19,6 @@ return {
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.media.img-clip-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
-  { import = "astrocommunity.motion.flash-nvim" },
   -- { import = "astrocommunity.test.neotest" },
 
   -- Runs privately
