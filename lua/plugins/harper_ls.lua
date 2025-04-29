@@ -9,7 +9,7 @@ return {
       config = {
         harper_ls = {
           -- Only attach to Typst and Markdown files
-          filetypes = { "typst", "markdown" },
+          filetypes = { "typst", "markdown", "text" },
           settings = {
             ["harper-ls"] = {
               codeActions = {
