@@ -114,6 +114,17 @@ return {
           desc = "Open markdown preview or perform tex action",
         },
 
+        -- ["<Leader>a"] = {
+        --   function()
+        --     if vim.bo.filetype == "snacks_dashboard" then
+        --       require("astrocore.buffer").close()
+        --     else
+        --       require("snacks").dashboard()
+        --     end
+        --   end,
+        --   desc = "Home Screen",
+        -- },
+
         -- Change some mappings to close buffers
         ["<Leader>bc"] = { function() require("astrocore.buffer").close() end, desc = "Close current buffer" },
         ["<Leader>bC"] = {
