@@ -20,6 +20,9 @@ return {
   { import = "astrocommunity.media.img-clip-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   -- { import = "astrocommunity.test.neotest" },
+  --
+  -- Import additional packages
+  -- https://github.com/azratul/live-share.nvim -- Useful to share sessions
 
   -- Runs privately
   -- { import = "astrocommunity.motion.mini-surround" },
