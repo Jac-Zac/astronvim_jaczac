@@ -20,6 +20,10 @@ return {
   { import = "astrocommunity.file-explorer.mini-files" },
   { import = "astrocommunity.media.img-clip-nvim" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+
+  -- Additional might not be needed
+  { import = "astrocommunity.motion.mini-surround" },
+
   -- { import = "astrocommunity.test.neotest" },
   --
   -- Import additional packages
