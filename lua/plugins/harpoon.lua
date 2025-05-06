@@ -13,7 +13,7 @@ return {
         maps.n[prefix] = { desc = require("astroui").get_icon("Harpoon", 1, true) .. "Harpoon" }
 
         maps.n[prefix .. "a"] = { function() require("harpoon"):list():add() end, desc = "Add file" }
-        maps.n[prefix .. "e"] = {
+        maps.n[prefix .. "o"] = {
           function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end,
           desc = "Toggle quick menu",
         }
@@ -27,12 +27,10 @@ return {
         --   desc = "Goto index of mark",
         -- }
         --
-        for i = 1, 9 do
-          maps.n[prefix .. i] = {
-            function() require("harpoon"):list():select(i) end,
-            desc = "Goto mark " .. i,
-          }
-        end
+        maps.n["H"] = { function() require("harpoon"):list():select(1) end, desc = "Got to mark 1" }
+        maps.n["J"] = { function() require("harpoon"):list():select(2) end, desc = "Got to mark 2" }
+        maps.n["K"] = { function() require("harpoon"):list():select(3) end, desc = "Got to mark 3" }
+        maps.n["L"] = { function() require("harpoon"):list():select(4) end, desc = "Got to mark 4" }
 
         -- maps.n["<C-p>"] = { function() require("harpoon"):list():prev() end, desc = "Goto previous mark" }
         -- maps.n["<C-n>"] = { function() require("harpoon"):list():next() end, desc = "Goto next mark" }

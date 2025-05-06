@@ -32,7 +32,8 @@ return {
         spell = true, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
-        autochdir = true, -- automatically change directory to the one of the file
+        -- This screws up with harpoon
+        autochdir = false, -- automatically change directory to the one of the file
       },
       g = { -- vim.g.<key>
         python3_host_prog = vim.fn.expand "~/.config/python_libraries/virtualenvs/neovim/bin/python3",
