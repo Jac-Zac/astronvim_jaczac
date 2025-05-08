@@ -23,7 +23,6 @@ return {
 
   -- Additional might not be needed
   { import = "astrocommunity.motion.mini-surround" },
-
   -- { import = "astrocommunity.test.neotest" },
   --
   -- Import additional packages

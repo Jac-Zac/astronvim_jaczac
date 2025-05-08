@@ -3,24 +3,25 @@ return {
   {
     "quarto-dev/quarto-nvim",
     ft = { "quarto", "markdown", "qmd", "md" },
+    opts = {},
     dependencies = {
       { "jmbuhr/otter.nvim" },
     },
     config = function()
       local quarto = require "quarto"
       quarto.setup {
-        lspFeatures = {
-          enabled = true,
-          languages = { "r", "python", "rust" },
-          chunks = "all",
-          diagnostics = {
-            enabled = true,
-            triggers = { "BufWritePost" },
-          },
-          completion = {
-            enabled = true,
-          },
-        },
+        -- lspFeatures = {
+        --   enabled = true,
+        --   languages = { "r", "python", "rust" },
+        --   chunks = "all",
+        --   diagnostics = {
+        --     enabled = true,
+        --     triggers = { "BufWritePost" },
+        --   },
+        --   completion = {
+        --     enabled = true,
+        --   },
+        -- },
         codeRunner = {
           enabled = true,
           default_method = "molten",
