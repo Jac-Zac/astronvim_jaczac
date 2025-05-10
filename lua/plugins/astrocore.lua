@@ -34,6 +34,7 @@ return {
         wrap = false, -- sets vim.opt.wrap
         -- This screws up with harpoon
         autochdir = false, -- automatically change directory to the one of the file
+        showtabline = 0, -- set to zero to avoid showing the tabline
       },
       g = { -- vim.g.<key>
         python3_host_prog = vim.fn.expand "~/.config/python_libraries/virtualenvs/neovim/bin/python3",

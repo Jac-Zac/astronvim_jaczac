@@ -14,15 +14,10 @@ return {
         -- install language servers
         "lua-language-server",
         "texlab",
-        "marksman",
 
         -- install formatters
         "stylua",
-        "black",
         "latexindent",
-
-        -- install debuggers
-        "debugpy",
 
         -- install any other package
         "tree-sitter-cli",
