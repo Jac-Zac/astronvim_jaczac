@@ -2,7 +2,8 @@
 return {
   {
     "quarto-dev/quarto-nvim",
-    ft = { "quarto", "markdown", "qmd", "md" },
+    -- ft = { "quarto", "markdown", "qmd", "md" },
+    event = "VeryLazy", -- More efficient than filetype-based loading
     opts = {},
     dependencies = {
       { "jmbuhr/otter.nvim" },

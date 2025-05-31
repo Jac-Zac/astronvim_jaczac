@@ -27,6 +27,14 @@ return {
   { import = "astrocommunity.motion.mini-surround" },
   { import = "astrocommunity.file-explorer.mini-files" },
 
+  -- Haed time nvim to improve vim efficiency
+  -- {
+  --   "m4xshen/hardtime.nvim",
+  --   lazy = false,
+  --   dependencies = { "MunifTanjim/nui.nvim" },
+  --   opts = {},
+  -- },
+  --
   -- Additional might not be needed
   -- { import = "astrocommunity.test.neotest" },
   --

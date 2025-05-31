@@ -58,7 +58,7 @@ end
 ---@type LazySpec
 return {
   "benlubas/molten-nvim",
-  lazy = false,
+  event = "VeryLazy", -- More efficient than filetype-based loading
   version = "^1", -- use version <2.0.0 to avoid breaking changes
   build = ":UpdateRemotePlugins",
   dependencies = {

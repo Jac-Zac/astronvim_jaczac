@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   "GCBallesteros/jupytext.nvim",
+  -- event = "VeryLazy",
   config = true,
   opts = {
     -- custom_language_formatting = {
