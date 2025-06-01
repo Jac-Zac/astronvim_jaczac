@@ -27,17 +27,15 @@ return {
   { import = "astrocommunity.motion.mini-surround" },
   { import = "astrocommunity.file-explorer.mini-files" },
 
+  -- Discover nice motions thanks to precognition-nvim
+  -- { import = "astrocommunity.workflow.precognition-nvim" },
+
   -- Haed time nvim to improve vim efficiency
-  -- {
-  --   "m4xshen/hardtime.nvim",
-  --   lazy = false,
-  --   dependencies = { "MunifTanjim/nui.nvim" },
-  --   opts = {},
-  -- },
-  --
+  -- { import = "astrocommunity.workflow.hardtime-nvim" },
+
   -- Additional might not be needed
   -- { import = "astrocommunity.test.neotest" },
-  --
+
   -- Import additional packages
   -- https://github.com/azratul/live-share.nvim -- Useful to share sessions
 

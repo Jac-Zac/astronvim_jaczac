@@ -9,11 +9,11 @@ return {
       "AstroNvim/astrocore",
       opts = function(_, opts)
         local maps = opts.mappings
-        local prefix = "<Leader>"
+        local prefix = "<Leader>h"
         maps.n[prefix] = { desc = require("astroui").get_icon("Harpoon", 1, true) .. "Harpoon" }
 
         maps.n[prefix .. "a"] = { function() require("harpoon"):list():add() end, desc = "Add file" }
-        maps.n[prefix .. "o"] = {
+        maps.n[prefix .. "e"] = {
           function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end,
           desc = "Toggle quick menu",
         }
