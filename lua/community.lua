@@ -24,7 +24,7 @@ return {
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
   { import = "astrocommunity.media.img-clip-nvim" },
   { import = "astrocommunity.motion.mini-ai" },
-  { import = "astrocommunity.motion.mini-surround" },
+  -- { import = "astrocommunity.motion.mini-surround" },
   { import = "astrocommunity.file-explorer.mini-files" },
   { import = "astrocommunity.editing-support.undotree" },
 
