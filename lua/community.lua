@@ -29,6 +29,9 @@ return {
   -- Adding opencode support
   { import = "astrocommunity.ai.opencode-nvim" },
 
+  -- AI completion
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
+
   -- Discover nice motions thanks to precognition-nvim
   -- { import = "astrocommunity.workflow.precognition-nvim" },
 
