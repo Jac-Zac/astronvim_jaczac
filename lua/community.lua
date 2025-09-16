@@ -27,6 +27,9 @@ return {
   { import = "astrocommunity.editing-support.undotree" },
   { import = "astrocommunity.file-explorer.fyler-nvim" },
 
+  -- AI completion
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
+
   -- Discover nice motions thanks to precognition-nvim
   -- { import = "astrocommunity.workflow.precognition-nvim" },
 
