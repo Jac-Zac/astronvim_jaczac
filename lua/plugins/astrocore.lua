@@ -37,7 +37,6 @@ return {
         showtabline = 0, -- set to zero to avoid showing the tabline
       },
       g = { -- vim.g.<key>
-        python3_host_prog = vim.fn.expand "~/.config/python_libraries/virtualenvs/neovim/bin/python3",
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
@@ -49,6 +48,8 @@ return {
       -- first key is the mode
       n = {
         -- second key is the lefthand side of the map
+        ["<C-d>"] = { "<C-d>zz", desc = "Half page down, then center" },
+        ["<C-u>"] = { "<C-u>zz", desc = "Half page up, then center" },
 
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
