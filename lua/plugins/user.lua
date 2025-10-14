@@ -96,16 +96,27 @@ return {
 
           keys = {
             { key = "o", action = "<Leader>fo", icon = get_icon("DefaultFile", 0, true), desc = "Recents  " },
-            -- { key = "'", action = "<Leader>ht", icon = get_icon("Bookmarks", 0, true), desc = "Harpooon  " },
-            { key = "p", action = "<Leader>fp", icon = get_icon("FolderOpen", 0, true), desc = "Find Project  " },
+            -- { key = "p", action = "<Leader>fp", icon = get_icon("FolderOpen", 0, true), desc = "Find Project  " },
             { key = "w", action = "<Leader>fw", icon = get_icon("WordFile", 0, true), desc = "Find Word  " },
             { key = "f", action = "<Leader>ff", icon = get_icon("Search", 0, true), desc = "Find File  " },
+            {
+              icon = "",
+              key = "e",
+              action = function() require("fyler").open { kind = "replace" } end,
+              desc = "File Manager",
+            },
             { key = "s", action = "<Leader>Sl", icon = get_icon("Refresh", 0, true), desc = "Last Session  " },
           },
         },
         sections = {
           { section = "header" },
           { section = "keys", gap = 1, padding = 1 },
+          -- {
+          --   icon = "",
+          --   key = "e",
+          --   action = function() require("fyler").open { kind = "replace" } end,
+          --   desc = "File Manager",
+          -- },
           {
             -- pane = 2,
             icon = " ",
@@ -114,6 +125,7 @@ return {
             key = "b",
             action = function() Snacks.gitbrowse() end,
           },
+          --
           -- { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1, pane = 2 },
           -- {
           --   -- pane = 2,
@@ -135,7 +147,6 @@ return {
 
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
-  -- { "nvim-neo-tree/neo-tree.nvim", enabled = false }, -- Disabled inside mini.files
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   -- {

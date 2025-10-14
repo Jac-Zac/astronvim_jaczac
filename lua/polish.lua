@@ -7,6 +7,9 @@
 -- Disable spell checking for Toggle Term
 vim.api.nvim_command "autocmd TermOpen * setlocal nospell"
 
+-- Disable spell checking for Fyler
+vim.api.nvim_command "autocmd FileType fyler setlocal nospell"
+
 -- Automatic fold peeking with delay
 -- vim.api.nvim_create_autocmd("CursorMoved", {
 --   pattern = "*",
