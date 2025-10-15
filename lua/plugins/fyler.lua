@@ -12,12 +12,7 @@ return {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = opts.mappings or {}
-          maps.n = maps.n or {}
           maps.n["<Leader>e"] = {
-            function() require("fyler").toggle { kind = "split_left_most" } end,
-            desc = "Open with fyler (split left-most)",
-          }
-          maps.n["<Leader>o"] = {
             function() require("fyler").toggle { kind = "float" } end,
             desc = "Open with fyler (floating)",
           }
@@ -25,8 +20,10 @@ return {
         end,
       },
     },
+
     opts = {
-      confirm_simple = true,
+      close_on_select = true,
+      confirm_simple = false,
       default_explorer = true,
 
       win = {
@@ -45,10 +42,7 @@ return {
       },
 
       mappings = {
-        ["<C-c>"] = "CloseView",
         ["<Tab>"] = "Select",
-        ["s"] = "SelectVSplit",
-        ["i"] = "SelectSplit",
       },
 
       indentscope = {
