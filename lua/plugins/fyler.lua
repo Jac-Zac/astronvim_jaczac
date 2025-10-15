@@ -1,62 +1,59 @@
 return {
-  "A7Lavinraj/fyler.nvim",
-  dependencies = {
-    "echasnovski/mini.icons",
-    {
-      "AstroNvim/astrocore",
-      opts = function(_, opts)
-        local maps = assert(opts.mappings)
-        maps.n["<Leader>e"] = { "<Cmd>Fyler<CR>", desc = "Fyler" }
-      end,
-    },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
   },
-  cmd = "Fyler",
-  opts = {
-    -- Close explorer when file is selected
-    -- close_on_select = true,
-    -- close_on_select = false,
 
-    -- Auto-confirm simple file operations
-    confirm_simple = true,
-
-    -- Replace as default explorer
-    default_explorer = true,
-
-    win = {
-      border = "rounded",
-      kind = "split_left",
-    },
-
-    git_status = {
-      enabled = true,
-      symbols = {
-        Modified = "●",
-        Added = "✚",
-        Deleted = "✖",
-        Untracked = "★",
+  {
+    "A7Lavinraj/fyler.nvim",
+    dependencies = {
+      "echasnovski/mini.icons",
+      {
+        "AstroNvim/astrocore",
+        opts = function(_, opts)
+          local maps = opts.mappings or {}
+          maps.n = maps.n or {}
+          maps.n["<Leader>e"] = {
+            function() require("fyler").toggle { kind = "split_left_most" } end,
+            desc = "Open with fyler (split left-most)",
+          }
+          maps.n["<Leader>o"] = {
+            function() require("fyler").toggle { kind = "float" } end,
+            desc = "Open with fyler (floating)",
+          }
+          opts.mappings = maps
+        end,
       },
     },
+    opts = {
+      confirm_simple = true,
+      default_explorer = true,
 
-    mappings = {
-      ["<C-c>"] = "CloseView",
-      ["<Tab>"] = "Select",
-      ["s"] = "SelectVSplit",
-      ["i"] = "SelectSplit",
-    },
+      win = {
+        border = "rounded",
+        kind = "replace",
+      },
 
-    indentscope = {
-      marker = "┊",
+      git_status = {
+        enabled = true,
+        symbols = {
+          Modified = "●",
+          Added = "✚",
+          Deleted = "✖",
+          Untracked = "★",
+        },
+      },
+
+      mappings = {
+        ["<C-c>"] = "CloseView",
+        ["<Tab>"] = "Select",
+        ["s"] = "SelectVSplit",
+        ["i"] = "SelectSplit",
+      },
+
+      indentscope = {
+        marker = "┊",
+      },
     },
   },
-
-  -- Additional configs
-  -- specs = {
-  --   { "neo-tree.nvim", optional = true, enabled = false },
-  --   {
-  --     "catppuccin",
-  --     optional = true,
-  --     ---@type CatppuccinOptions
-  --     opts = { integrations = { mini = true } },
-  --   },
-  -- },
 }
