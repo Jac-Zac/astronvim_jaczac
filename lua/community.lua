@@ -26,6 +26,7 @@ return {
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.editing-support.undotree" },
   { import = "astrocommunity.file-explorer.fyler-nvim" },
+  { import = "astrocommunity.editing-support.auto-save-nvim" },
 
   -- AI completion
   { import = "astrocommunity.completion.copilot-lua-cmp" },
