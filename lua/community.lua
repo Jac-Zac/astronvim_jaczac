@@ -25,7 +25,6 @@ return {
   { import = "astrocommunity.media.img-clip-nvim" },
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.editing-support.undotree" },
-  { import = "astrocommunity.file-explorer.fyler-nvim" },
 
   -- Discover nice motions thanks to precognition-nvim
   -- { import = "astrocommunity.workflow.precognition-nvim" },
