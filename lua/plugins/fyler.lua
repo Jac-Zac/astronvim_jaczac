@@ -17,18 +17,23 @@ return {
     },
 
     opts = {
-      default_explorer = true,
-      -- Close explorer when file is selected
-      close_on_select = false,
-      -- Move deleted files/directories to the system trash
-      delete_to_trash = true,
+      views = {
+        finder = {
+          default_explorer = true,
+          -- Close explorer when file is selected
+          close_on_select = false,
+          -- Move deleted files/directories to the system trash
+          delete_to_trash = true,
 
-      win = {
-        border = "rounded",
-        kind = "replace",
-      },
-      indentscope = {
-        marker = "┊",
+          indentscope = {
+            marker = "┊",
+          },
+        },
+
+        win = {
+          border = "rounded",
+          kind = "replace",
+        },
       },
     },
   },
