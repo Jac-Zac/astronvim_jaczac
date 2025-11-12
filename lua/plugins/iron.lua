@@ -22,7 +22,7 @@ return {
             },
             python = {
               format = require("iron.fts.common").bracketed_paste,
-              command = { "ipython", "-i", "--no-autoindent", "--nosep" },
+              command = { "ipython", "-i", "--no-autoindent", "--nosep", " --quiet" },
               env = { PYTHON_BASIC_REPL = "1" }, --this is needed for python3.13 and up.
               block_dividers = { "# %%", "#%%" },
             },
@@ -35,6 +35,11 @@ return {
             number = false,
           }),
         },
+        keymaps = {
+          clear = "<leader>rc",
+          send_code_block_and_move = "<C-CR>",
+        },
+
         -- If the highlight is on, you can change how it looks
         -- For the available options, check `:help nvim_set_hl`
         highlight = { italic = true }, -- make code that was just sent italic
@@ -49,18 +54,14 @@ return {
         function() iron.repl_for(vim.bo.filetype) end,
         { desc = "REPL: start/toggle/hide (from code buffer)" }
       )
-      vim.keymap.set(
-        "n",
-        "<leader>rc",
-        function() iron.close_repl(vim.bo.filetype) end,
-        { desc = "REPL: close (from code buffer)" }
-      )
+
+      -- vim.keymap.set("n", "<leader>rc", iron.clear, { desc = "REPL: clear (from code buffer)" })
+      -- vim.keymap.set("n", "<C-CR>", iron.send_code_block, { desc = "Send Code Block" })
 
       vim.keymap.set("n", "<leader>rl", iron.send_line, { desc = "Run line" })
       vim.keymap.set("n", "<leader>rp", iron.send_paragraph, { desc = "Run paragraph" })
       vim.keymap.set("n", "<leader>ru", iron.send_until_cursor, { desc = "Run until cursor" })
       vim.keymap.set("n", "<leader>rf", iron.send_file, { desc = "Run file" })
-      vim.keymap.set("n", "<C-CR>", iron.send_code_block, { desc = "Send Code Block" })
 
       -- visual mode
       vim.keymap.set("v", "<C-CR>", iron.visual_send, { desc = "Run selection" })
