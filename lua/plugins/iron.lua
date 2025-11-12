@@ -30,7 +30,7 @@ return {
                 "--quiet",
                 "--no-confirm-exit",
                 "--no-tip",
-                "-no-banner",
+                "--no-banner",
               },
               env = { PYTHON_BASIC_REPL = "1" }, --this is needed for python3.13 and up.
               block_dividers = { "# %%", "#%%" },
@@ -74,7 +74,6 @@ return {
       vim.keymap.set("n", "<leader>rp", iron.send_paragraph, { desc = "Run paragraph" })
       vim.keymap.set("n", "<leader>ru", iron.send_until_cursor, { desc = "Run until cursor" })
       vim.keymap.set("n", "<leader>rf", iron.send_file, { desc = "Run file" })
-      vim.keymap.set("n", "<C-CR>", iron.send_code_block, { desc = "Send Code Block" })
 
       ---- from inside REPL only
       vim.keymap.set("n", "<leader>rR", iron.repl_restart, { desc = "REPL: restart (from inside REPL)" })
