@@ -29,6 +29,7 @@ return {
   { import = "astrocommunity.editing-support.auto-save-nvim" },
 
   -- AI completion
+  { import = "astrocommunity.ai.opencode-nvim" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
 
   -- Discover nice motions thanks to precognition-nvim
