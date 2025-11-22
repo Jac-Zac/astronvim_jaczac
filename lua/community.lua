@@ -26,6 +26,9 @@ return {
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.editing-support.undotree" },
 
+  -- Adding opencode support
+  { import = "astrocommunity.ai.opencode-nvim" },
+
   -- Discover nice motions thanks to precognition-nvim
   -- { import = "astrocommunity.workflow.precognition-nvim" },
 
