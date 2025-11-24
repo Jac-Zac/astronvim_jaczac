@@ -12,6 +12,21 @@ return {
             function() require("fyler").toggle { kind = "float" } end,
             desc = "Open with fyler (floating)",
           }
+
+          -- --- ADDITION STARTS HERE ---
+          -- We create an autocommand to run whenever the 'fyler' filetype is detected.
+          opts.autocmds = opts.autocmds or {}
+          opts.autocmds.fyler_unmap_q = {
+            {
+              event = "FileType",
+              pattern = "fyler", -- This assumes the filetype is 'fyler'. Check :set ft? if unsure.
+              callback = function(args)
+                -- pcall prevents errors if 'q' isn't mapped for some reason
+                pcall(vim.keymap.del, "n", "q", { buffer = args.buf })
+              end,
+            },
+          }
+          -- --- ADDITION ENDS HERE ---
         end,
       },
     },
