@@ -28,11 +28,15 @@ return {
           indentscope = {
             marker = "┊",
           },
-        },
 
-        win = {
-          border = "rounded",
-          kind = "replace",
+          win = {
+            border = "rounded",
+            kind = "replace",
+            win_opts = {
+              number = true,
+              relativenumber = true,
+            },
+          },
         },
       },
     },

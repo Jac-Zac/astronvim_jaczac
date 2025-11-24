@@ -26,7 +26,7 @@ return {
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.editing-support.undotree" },
 
-  -- Adding opencode support
+  -- AI Plugin
   { import = "astrocommunity.ai.opencode-nvim" },
 
   -- Discover nice motions thanks to precognition-nvim
@@ -40,9 +40,6 @@ return {
 
   -- Import additional packages
   -- https://github.com/azratul/live-share.nvim -- Useful to share sessions
-
-  -- AI Plugin
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
 
   -- import/override with your plugins folder
 }
