@@ -40,10 +40,6 @@ return {
           -- Move deleted files/directories to the system trash
           delete_to_trash = true,
 
-          indentscope = {
-            marker = "┊",
-          },
-
           win = {
             border = "rounded",
             kind = "replace",
