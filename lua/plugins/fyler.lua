@@ -38,7 +38,7 @@ return {
           -- Close explorer when file is selected
           close_on_select = false,
           -- Move deleted files/directories to the system trash
-          delete_to_trash = true,
+          -- delete_to_trash = true,
 
           win = {
             border = "rounded",
