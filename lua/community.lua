@@ -22,9 +22,9 @@ return {
   { import = "astrocommunity.debugging.nvim-dap-repl-highlights" },
   { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
   { import = "astrocommunity.markdown-and-latex.render-markdown-nvim" },
-  { import = "astrocommunity.media.img-clip-nvim" },
   { import = "astrocommunity.motion.mini-ai" },
   { import = "astrocommunity.editing-support.undotree" },
+  -- { import = "astrocommunity.media.img-clip-nvim" },
 
   -- AI Plugin
   { import = "astrocommunity.ai.opencode-nvim" },
@@ -37,9 +37,6 @@ return {
 
   -- Additional might not be needed
   -- { import = "astrocommunity.test.neotest" },
-
-  -- Import additional packages
-  -- https://github.com/azratul/live-share.nvim -- Useful to share sessions
 
   -- import/override with your plugins folder
 }

@@ -21,7 +21,7 @@ return {
               command = { "zsh" },
             },
             python = {
-              format = require("iron.fts.common").bracketed_paste,
+              -- format = require("iron.fts.common").bracketed_paste,
               command = {
                 "ipython",
                 "-i",
@@ -51,7 +51,7 @@ return {
 
         -- If the highlight is on, you can change how it looks
         -- For the available options, check `:help nvim_set_hl`
-        highlight = { italic = true }, -- make code that was just sent italic
+        highlight = { bg = "#434c5e" },
         ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
       }
 
