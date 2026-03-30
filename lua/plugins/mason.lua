@@ -13,11 +13,14 @@ return {
       ensure_installed = {
         -- install language servers
         "lua-language-server",
-        "texlab",
+        -- "texlab",
 
         -- install formatters
         "stylua",
-        "latexindent",
+        -- "latexindent",
+
+        -- install debuggers
+        "debugpy",
 
         -- install any other package
         "tree-sitter-cli",

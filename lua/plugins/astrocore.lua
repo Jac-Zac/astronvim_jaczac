@@ -7,8 +7,7 @@
 
 ---@type LazySpec
 return {
-  "AstroNvim/astrocore",
-  ---@type AstroCoreOpts
+  "AstroNvim/astrocore", ---@type AstroCoreOpts
   opts = {
     -- Configure core features of AstroNvim
     features = {
@@ -24,6 +23,19 @@ return {
       virtual_text = true,
       underline = true,
     },
+    -- passed to `vim.filetype.add`
+    filetypes = {
+      -- see `:h vim.filetype.add` for usage
+      extension = {
+        foo = "fooscript",
+      },
+      filename = {
+        [".foorc"] = "fooscript",
+      },
+      pattern = {
+        [".*/etc/foo/.*"] = "fooscript",
+      },
+    },
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
@@ -32,7 +44,6 @@ return {
         spell = true, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
-        -- This screws up with harpoon
         autochdir = false, -- automatically change directory to the one of the file
         showtabline = 0, -- set to zero to avoid showing the tabline
       },
@@ -145,6 +156,13 @@ return {
         -- ["F"] = { "]s1z=", desc = "Fixing misspelled forward" },
         -- Select virtual environment
         -- ["<Leader>fv"] = { "<cmd>VenvSelect<CR>", desc = "Virtual environment selector" },
+
+        -- tables with just a `desc` key will be registered with which-key if it's installed
+        -- this is useful for naming menus
+        -- ["<Leader>b"] = { desc = "Buffers" },
+
+        -- setting a mapping to false will disable it
+        -- ["<C-S>"] = false,
       },
 
       v = {

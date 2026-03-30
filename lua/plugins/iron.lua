@@ -21,7 +21,7 @@ return {
               command = { "zsh" },
             },
             python = {
-              -- format = require("iron.fts.common").bracketed_paste,
+              format = require("iron.fts.common").bracketed_paste,
               command = {
                 "ipython",
                 "-i",

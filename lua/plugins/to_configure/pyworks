@@ -5,6 +5,7 @@ return {
       "benlubas/molten-nvim",
       "3rd/image.nvim",
     },
+    event = { "BufReadPre *.ipynb", "BufNewFile *.ipynb" },
     config = function()
       require("pyworks").setup {
         -- Python environment settings
@@ -59,7 +60,5 @@ return {
         skip_keymaps = false, -- Skip keymap setup (define your own)
       }
     end,
-    lazy = false,
-    priority = 100,
   },
 }

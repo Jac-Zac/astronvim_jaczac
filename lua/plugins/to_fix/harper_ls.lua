@@ -8,16 +8,16 @@ return {
       ---@diagnostic disable-next-line: missing-fields
       config = {
         harper_ls = {
-          -- Only attach to Typst and Markdown files
-          filetypes = { "typst", "markdown", "text" },
+          cmd = { "harper-ls", "--stdio" },
+          -- Only attach to Typst, Markdown, TeX, and plain text files
+          filetypes = { "markdown", "text", "tex", "typst" },
           settings = {
             ["harper-ls"] = {
-              codeActions = {
-                forceStable = true,
-              },
+              codeActions = { ForceStable = true },
               linters = {
-                spelled_numbers = true,
-                linking_verbs = true,
+                SpellCheck = false,
+                SentenceCapitalization = false,
+                SpelledNumbers = true,
               },
             },
           },
