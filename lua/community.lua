@@ -40,7 +40,7 @@ return {
   -- AI completion
   { import = "astrocommunity.ai.opencode-nvim" },
   -- TODO: add this again checking things are working correctly
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
 
   -- Discover nice motions thanks to precognition-nvim
   -- { import = "astrocommunity.workflow.precognition-nvim" },
