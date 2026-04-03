@@ -53,6 +53,38 @@ return {
         -- This can be found in the `lua/lazy_setup.lua` file
       },
     },
+    -- Custom user commands
+    commands = {
+      FormatAll = {
+        function()
+          local ext = vim.fn.expand "%:e"
+          if ext == "" then
+            vim.notify("No file extension detected", vim.log.levels.WARN)
+            return
+          end
+
+          local root = vim.fn.getcwd()
+          local ok, astrocore = pcall(require, "astrocore")
+          if ok and astrocore.rooter and astrocore.rooter.get_root then root = astrocore.rooter.get_root() or root end
+
+          local pattern = "**/*." .. ext
+          local files = vim.fn.glob(root .. "/" .. pattern, true, true)
+          if #files == 0 then
+            vim.notify("No *." .. ext .. " files found in project", vim.log.levels.WARN)
+            return
+          end
+
+          vim.notify("Formatting " .. #files .. " *." .. ext .. " files...", vim.log.levels.INFO)
+          for _, file in ipairs(files) do
+            vim.cmd("edit " .. vim.fn.fnameescape(file))
+            vim.lsp.buf.format({ async = false })
+            vim.cmd "update"
+          end
+          vim.notify("Done formatting " .. #files .. " files", vim.log.levels.INFO)
+        end,
+        desc = "Format all files of current type in project",
+      },
+    },
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
@@ -138,6 +170,12 @@ return {
         -- disabing mapping to close buffer
         ["<Leader>c"] = { "gcc", remap = true, desc = "Toggle comment line" },
         ["<Leader>/"] = false,
+
+        -- Format all files of current type in project
+        ["<Leader>F"] = {
+          function() vim.cmd "FormatAll" end,
+          desc = "Format all same-type files in project",
+        },
 
         -- Set zen model and line wrap --
         ["<Leader>uZ"] = {

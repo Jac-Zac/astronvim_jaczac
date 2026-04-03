@@ -27,7 +27,8 @@ return {
   -- { import = "astrocommunity.media.img-clip-nvim" },
 
   -- AI Plugin
-  { import = "astrocommunity.ai.opencode-nvim" },
+  -- { import = "astrocommunity.ai.opencode-nvim" },
+  { import = "astrocommunity.ai.sidekick-nvim" },
 
   -- Discover nice motions thanks to precognition-nvim
   -- { import = "astrocommunity.workflow.precognition-nvim" },
