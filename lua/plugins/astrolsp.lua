@@ -12,7 +12,9 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
-      codelens = true, -- enable/disable codelens refresh on start
+      -- codelens = true, -- enable/disable codelens refresh on start
+      codelens = false, -- HACK: Avoid errors tmp
+
       inlay_hints = false, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
       -- signature_help = false, -- enable automatic signature help popup globally on startup

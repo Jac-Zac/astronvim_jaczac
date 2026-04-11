@@ -10,10 +10,17 @@ return {
 
   -- Language packs
   { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.typst" },
   { import = "astrocommunity.pack.markdown" },
+
+  -- Python config
+  -- Base pack with basedpyright, black and isort -> I will switch to ty instead of basedpyright
+  -- { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.python.base" },
+  { import = "astrocommunity.pack.python.ty" },
+  { import = "astrocommunity.pack.python.black" },
+  { import = "astrocommunity.pack.python.isort" },
 
   -- Additional plugins
   { import = "astrocommunity.colorscheme.catppuccin" },
