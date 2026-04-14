@@ -34,8 +34,7 @@ return {
   -- { import = "astrocommunity.media.img-clip-nvim" },
 
   -- AI completion
-  -- TODO: add this again checking things are working correctly
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.completion.copilot-lua-cmp" },
   { import = "astrocommunity.ai.sidekick-nvim" },
 
   -- Discover nice motions thanks to precognition-nvim
