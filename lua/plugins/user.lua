@@ -22,6 +22,10 @@ return {
     "folke/snacks.nvim",
     ---@type snacks.Config
     opts = {
+      picker = {
+        ui_select = true,
+      },
+
       -- In the future enable images in a smart way that isn't annoying
       -- image = {
       --   doc = {
