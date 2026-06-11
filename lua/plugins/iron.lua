@@ -1,6 +1,7 @@
 return {
   {
     "Vigemus/iron.nvim",
+    dir = "/Users/jaczac/Github/iron.nvim", -- your patched local checkout
     ft = { "python", "markdown" },
 
     config = function()
@@ -41,9 +42,7 @@ return {
           return line and (line:match "^```%s*[pP][yY][tT][hH][oO][nN]" or line:match "^```%s*[pP][yY][%w_%-]*")
         end
 
-        local function is_closing_fence(line)
-          return line and line:match "^```%s*$" ~= nil
-        end
+        local function is_closing_fence(line) return line and line:match "^```%s*$" ~= nil end
 
         local cells = {}
         local open_line
@@ -119,7 +118,6 @@ return {
         if choice == "Custom SSH command" then
           vim.ui.input({
             prompt = "SSH command",
-            default = "ssh ",
           }, function(cmdline)
             if cmdline == nil or vim.trim(cmdline) == "" then return end
 
@@ -164,7 +162,7 @@ return {
             },
             python = python_repl,
             markdown = python_repl,
-            remote_shell = remote_shell_def({ "ssh" }),
+            remote_shell = remote_shell_def { "ssh" },
           },
           -- How the repl window will be displayed
           -- See below for more information
@@ -173,6 +171,11 @@ return {
             winfixheight = false,
             number = false,
           }),
+          -- vim.api.nvim_set_hl(0, "IronCellMarker", { fg = "#ff5f87", bold = true }),
+          cell_marker = {
+            enabled = true,
+          },
+          ignore_blank_lines = true,
         },
         keymaps = {
           clear = "<leader>rc",
@@ -248,9 +251,7 @@ return {
       vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter", "FileType" }, {
         group = group,
         pattern = "markdown",
-        callback = function(ev)
-          activate_otter(ev.buf)
-        end,
+        callback = function(ev) activate_otter(ev.buf) end,
       })
 
       activate_otter(vim.api.nvim_get_current_buf())

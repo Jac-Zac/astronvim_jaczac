@@ -4,6 +4,17 @@
 -- things like custom filetypes. This is just pure lua so anything that doesn't
 -- fit in the normal config locations above can go here
 --
+
+local markdown_preview_app = vim.fn.stdpath "data" .. "/lazy/markdown-preview.nvim/app"
+
+local function markdown_preview_missing_deps()
+  return vim.fn.filereadable(markdown_preview_app .. "/node_modules/tslib/tslib.js") == 0
+end
+
+if markdown_preview_missing_deps() and vim.fn.executable "npm" == 1 then
+  vim.fn.system("cd " .. vim.fn.shellescape(markdown_preview_app) .. " && npm install")
+end
+
 -- Disable spell checking for Toggle Term
 vim.api.nvim_command "autocmd TermOpen * setlocal nospell"
 

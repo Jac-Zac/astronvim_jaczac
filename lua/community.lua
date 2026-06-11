@@ -18,7 +18,8 @@ return {
   -- Base pack with basedpyright, black and isort -> I will switch to ty instead of basedpyright
   -- { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.python.base" },
-  { import = "astrocommunity.pack.python.ty" },
+  -- { import = "astrocommunity.pack.python.ty" },
+  { import = "astrocommunity.pack.python.basedpyright" },
   { import = "astrocommunity.pack.python.black" },
   { import = "astrocommunity.pack.python.isort" },
 
