@@ -1,13 +1,16 @@
 return {
   { "nvim-neo-tree/neo-tree.nvim", optional = true, enabled = false },
   {
-    "A7Lavinraj/fyler.nvim",
+    "FylerOrg/fyler.nvim",
+    version = "^2",
     dependencies = {
-      "echasnovski/mini.icons",
+      "nvim-mini/mini.icons",
       {
         "AstroNvim/astrocore",
         opts = function(_, opts)
           local maps = opts.mappings or {}
+          opts.mappings = maps
+          maps.n = maps.n or {}
           maps.n["<Leader>e"] = {
             function() require("fyler").toggle { kind = "float" } end,
             desc = "Open with fyler (floating)",
@@ -32,14 +35,14 @@ return {
     },
 
     opts = {
+      integrations = {
+        icon = "mini_icons",
+      },
+
       views = {
         finder = {
           default_explorer = true,
-          -- Close explorer when file is selected
           close_on_select = false,
-          -- Move deleted files/directories to the system trash
-          -- delete_to_trash = true,
-
           win = {
             border = "rounded",
             kind = "replace",
