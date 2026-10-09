@@ -41,7 +41,10 @@ return {
       opt = { -- vim.opt.<key>
         relativenumber = true, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
-        spell = true, -- sets vim.opt.spell
+        spell = false, -- default off; enabled per-filetype via autocmds below (prose + comments)
+        spelllang = "en_us,cjk",
+        spelloptions = "camel",
+        spellfile = vim.fn.stdpath "config" .. "/spell/en.utf-8.add",
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
         autochdir = false, -- automatically change directory to the one of the file
@@ -51,6 +54,59 @@ return {
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+      },
+    },
+    -- Custom autocmds: scoped spell checking (treesitter limits code buffers to @spell = comments/strings)
+    autocmds = {
+      enable_spell_prose = {
+        {
+          event = "FileType",
+          pattern = { "markdown", "text", "plaintex", "tex", "typst", "gitcommit" },
+          desc = "Enable spell for prose",
+          callback = function() vim.opt_local.spell = true end,
+        },
+      },
+      enable_spell_comments = {
+        {
+          event = "FileType",
+          pattern = { "python", "lua", "cpp", "c", "sh", "bash", "zsh", "vim", "javascript", "typescript", "rust", "go" },
+          desc = "Enable spell for code comments (treesitter @spell scopes it)",
+          callback = function() vim.opt_local.spell = true end,
+        },
+      },
+      disable_spell_special = {
+        {
+          event = "FileType",
+          pattern = {
+            "fyler",
+            "help",
+            "lazy",
+            "mason",
+            "neo-tree",
+            "NvimTree",
+            "TelescopePrompt",
+            "TelescopeResults",
+            "toggleterm",
+          },
+          desc = "Disable spell for tool windows",
+          callback = function() vim.opt_local.spell = false end,
+        },
+      },
+      -- Keep global diagnostic UI (underline/virtual_text) untouched;
+      -- markdown LSP noise is filtered per-server instead. Only soften
+      -- hint-level virtual text in prose so hints stay in floats.
+      soften_markdown_hints = {
+        {
+          event = "FileType",
+          pattern = { "markdown", "text" },
+          desc = "Show only WARN+ inline in prose, hints stay in floats",
+          callback = function(ev)
+            vim.diagnostic.config({
+              underline = { severity = { min = vim.diagnostic.severity.WARN } },
+              virtual_text = { severity = { min = vim.diagnostic.severity.WARN } },
+            }, ev.buf)
+          end,
+        },
       },
     },
     -- Custom user commands

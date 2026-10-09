@@ -225,8 +225,11 @@ return {
     config = function()
       local otter = require "otter"
 
-      -- Keep Python LSP features available inside Jupytext markdown cells.
-      otter.setup {}
+      -- Keep Python LSP features available inside Jupytext markdown cells,
+      -- but don't mirror hidden-buffer diagnostics back into prose.
+      otter.setup {
+        lsp = { diagnostic_update_events = { "BufWritePost" } },
+      }
 
       local group = vim.api.nvim_create_augroup("otter-jupytext", { clear = true })
       local function activate_otter(bufnr)
@@ -236,7 +239,8 @@ return {
           if not vim.api.nvim_buf_is_valid(bufnr) then return end
 
           local ok, err = pcall(vim.api.nvim_buf_call, bufnr, function()
-            local success, activate_err = pcall(otter.activate, nil, true, true)
+            -- completion on, diagnostics off: avoids basedpyright fence noise in markdown
+            local success, activate_err = pcall(otter.activate, nil, true, false)
             if not success then error(activate_err) end
           end)
 
