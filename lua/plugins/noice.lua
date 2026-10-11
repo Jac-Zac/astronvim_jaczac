@@ -7,11 +7,10 @@ return {
     local utils = require "astrocore"
     return utils.extend_tbl(opts, {
       lsp = {
-        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        -- Use Tree-sitter for LSP markdown rendering.
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
         },
       },
       presets = {
@@ -31,15 +30,8 @@ return {
   end,
   specs = {
     {
-      "nvim-treesitter/nvim-treesitter",
-      opts = function(_, opts)
-        if opts.ensure_installed ~= "all" then
-          opts.ensure_installed = require("astrocore").list_insert_unique(
-            opts.ensure_installed,
-            { "bash", "markdown", "markdown_inline", "regex", "vim" }
-          )
-        end
-      end,
+      "AstroNvim/astrocore",
+      opts = { treesitter = { ensure_installed = { "bash", "markdown", "markdown_inline", "regex", "vim" } } },
     },
     {
       "AstroNvim/astrolsp",

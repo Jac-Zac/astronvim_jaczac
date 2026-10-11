@@ -5,6 +5,13 @@
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
 
+-- Keep hints in floats, but only show WARN+ inline in prose buffers.
+local function inline_diagnostics(_, bufnr)
+  local ft = vim.bo[bufnr].filetype
+  if ft == "markdown" or ft == "text" then return { severity = { min = vim.diagnostic.severity.WARN } } end
+  return true
+end
+
 ---@type LazySpec
 return {
   "AstroNvim/astrocore", ---@type AstroCoreOpts
@@ -20,21 +27,8 @@ return {
     },
     -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
     diagnostics = {
-      virtual_text = true,
-      underline = true,
-    },
-    -- passed to `vim.filetype.add`
-    filetypes = {
-      -- see `:h vim.filetype.add` for usage
-      extension = {
-        foo = "fooscript",
-      },
-      filename = {
-        [".foorc"] = "fooscript",
-      },
-      pattern = {
-        [".*/etc/foo/.*"] = "fooscript",
-      },
+      virtual_text = inline_diagnostics,
+      underline = inline_diagnostics,
     },
     -- vim options can be configured here
     options = {
@@ -58,6 +52,13 @@ return {
     },
     -- Custom autocmds: scoped spell checking (treesitter limits code buffers to @spell = comments/strings)
     autocmds = {
+      disable_spell_terminal = {
+        {
+          event = "TermOpen",
+          desc = "Disable spell in terminals",
+          callback = function() vim.opt_local.spell = false end,
+        },
+      },
       enable_spell_prose = {
         {
           event = "FileType",
@@ -69,7 +70,20 @@ return {
       enable_spell_comments = {
         {
           event = "FileType",
-          pattern = { "python", "lua", "cpp", "c", "sh", "bash", "zsh", "vim", "javascript", "typescript", "rust", "go" },
+          pattern = {
+            "python",
+            "lua",
+            "cpp",
+            "c",
+            "sh",
+            "bash",
+            "zsh",
+            "vim",
+            "javascript",
+            "typescript",
+            "rust",
+            "go",
+          },
           desc = "Enable spell for code comments (treesitter @spell scopes it)",
           callback = function() vim.opt_local.spell = true end,
         },
@@ -90,22 +104,6 @@ return {
           },
           desc = "Disable spell for tool windows",
           callback = function() vim.opt_local.spell = false end,
-        },
-      },
-      -- Keep global diagnostic UI (underline/virtual_text) untouched;
-      -- markdown LSP noise is filtered per-server instead. Only soften
-      -- hint-level virtual text in prose so hints stay in floats.
-      soften_markdown_hints = {
-        {
-          event = "FileType",
-          pattern = { "markdown", "text" },
-          desc = "Show only WARN+ inline in prose, hints stay in floats",
-          callback = function(ev)
-            vim.diagnostic.config({
-              underline = { severity = { min = vim.diagnostic.severity.WARN } },
-              virtual_text = { severity = { min = vim.diagnostic.severity.WARN } },
-            }, ev.buf)
-          end,
         },
       },
       -- Otter forwards symbols for the code fence at the cursor, not the whole document.
@@ -146,7 +144,7 @@ return {
           vim.notify("Formatting " .. #files .. " *." .. ext .. " files...", vim.log.levels.INFO)
           for _, file in ipairs(files) do
             vim.cmd("edit " .. vim.fn.fnameescape(file))
-            vim.lsp.buf.format({ async = false })
+            vim.lsp.buf.format { async = false }
             vim.cmd "update"
           end
           vim.notify("Done formatting " .. #files .. " files", vim.log.levels.INFO)
@@ -190,17 +188,12 @@ return {
 
         -- Set up Function keys
         ["<F1>"] = {
-          function()
-            os.execute "cd ~/.config/nvim && git stash && git pull && git stash pop && cd"
-            vim.cmd "MasonUpdate"
-            vim.cmd "AstroUpdate"
-            vim.cmd "Lazy update"
-          end,
+          "<cmd>AstroUpdate<CR>",
           desc = "Update AstroNvim",
         },
 
         ["<F2>"] = { "<cmd>NoiceDismiss<CR>", desc = "Dismiss Noice Messages" },
-        ["<F3>"] = { "<cmd>TodoTelescope<CR>", desc = "Todo Search with Telescope" },
+        ["<F3>"] = { "<Leader>fT", remap = true, desc = "Find TODOs" },
 
         -- open markdown preview or latex depending on the file type
         ["<F4>"] = {
@@ -251,9 +244,8 @@ return {
           function()
             require("snacks").toggle.zen():toggle() -- Toggle Zen Mode
             require("astrocore.toggles").wrap() -- Toggle line wrap
-            vim.cmd "LspStop"
           end,
-          desc = "Toggle Folding and ZenMode",
+          desc = "Toggle Zen Mode and line wrap",
         },
 
         ["<C-f>"] = { "[s1z=", desc = "Fixing misspelled backward" },
