@@ -108,6 +108,19 @@ return {
           end,
         },
       },
+      -- Otter forwards symbols for the code fence at the cursor, not the whole document.
+      disable_otter_symbols = {
+        {
+          event = "LspAttach",
+          desc = "Disable Otter document symbols",
+          callback = function(args)
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            if client and client.name:match "^otter%-ls" then
+              client.server_capabilities.documentSymbolProvider = nil
+            end
+          end,
+        },
+      },
     },
     -- Custom user commands
     commands = {
